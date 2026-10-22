@@ -1,0 +1,597 @@
+[
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "",
+    "text": "Curso de especialização em:\n\n\n\nCiências Sociais de Dados: Aplicações de Métodos Quantitativos à Análise Social e à Avaliação de Políticas Públicas\n\n\nMódulo: 04 – Introdução à Análise de Dados com Python\n Docente: Prof. Dr. Alisson Soares\nAula por: Alisson Soares"
+  },
+  {
+    "objectID": "index.html#convenções-para-variáveis",
+    "href": "index.html#convenções-para-variáveis",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Convenções para variáveis:",
+    "text": "Convenções para variáveis:\n\nNão comece nomes com números, não use espaços nem ponto, use sublinhado _ para separar palavras\nvariáveis são escritas em snake case: bla_bla\nUsar nome significativo, ao invés de “a”, “b”"
+  },
+  {
+    "objectID": "index.html#por-que-isso-importa-para-análise-de-dados",
+    "href": "index.html#por-que-isso-importa-para-análise-de-dados",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Por que isso importa para análise de dados?",
+    "text": "Por que isso importa para análise de dados?\n\n“Compreender a semântica das referências em Python, e quando, como e por que os dados são copiados, é particularmente crucial quando estivermos trabalhando com conjuntos de dados maiores em Python.” (McKinney, 2017, p. 68)\n\n\n\n\n\n\n\nAviso\n\n\nCuidado ao “copiar” um DataFrame com df2 = df1: geralmente é uma referência. Para uma cópia de verdade, use .copy() (veremos na aula de pandas).\n\n\n\na = [1, 2, 3]\nb = a          # b aponta para a MESMA lista, não copia\na.append(4)\nb              # [1, 2, 3, 4]  &lt;- b também mudou!\n\na = [1, 2, 3]\nb = a\na.append(4)\nb\n\n[1, 2, 3, 4]"
+  },
+  {
+    "objectID": "index.html#comparando-com-o-r",
+    "href": "index.html#comparando-com-o-r",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comparando com o R",
+    "text": "Comparando com o R\n\n\n\n# python\na = [1, 2, 3]\nb = a          \n# b aponta para a MESMA lista, não copia\na.append(4)\nb              \n\n[1, 2, 3, 4]\n\n# [1, 2, 3, 4]  &lt;- b também mudou!\n\na = [1, 2, 3]\nb = a.copy()\na.append(4)\nb              # [1, 2, 3, 4]  &lt;- b também mudou!\n\n[1, 2, 3]\n\n\n\n\n# R\na &lt;- c(1, 2, 3)\n# em R isso NÃO cria alias mutável\nb &lt;- a            \n# append em R: cria novo vetor\na &lt;- c(a, 4)      \nb                 \n\n[1] 1 2 3\n\n# [1] 1 2 3  &lt;- b NÃO mudou\na        # [1] 1 2 3 4\n\n[1] 1 2 3 4"
+  },
+  {
+    "objectID": "index.html#tipagem-dinâmica",
+    "href": "index.html#tipagem-dinâmica",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tipagem dinâmica",
+    "text": "Tipagem dinâmica\n\nDinâmica: uma variável pode apontar para objetos de tipos diferentes.\n\n\n# | label: tip-dinamica-objeto\na = 5\ntype(a)   # int\n\n&lt;class 'int'&gt;\n\na = 'foo'\ntype(a)   # str\n\n&lt;class 'str'&gt;\n\n\n\nForte: '5' + 5 gera TypeError — nada de conversão implícita “por baixo”.\n\n&gt;&gt;&gt; '5' + 5\nTypeError: must be str, not int"
+  },
+  {
+    "objectID": "index.html#verificando-tipos",
+    "href": "index.html#verificando-tipos",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Verificando tipos",
+    "text": "Verificando tipos\n\n# | label: tip-isinstance\na = 5\nisinstance(a, int)\n\nTrue\n\n\n\n# | label: tip-isinstance-tupla\nb = 4.5\nisinstance(b, (int, float))\n\nTrue\n\n\n\nisinstance(obj, (tipo1, tipo2)): aceita uma tupla de tipos."
+  },
+  {
+    "objectID": "index.html#indentação-no-lugar-de-chaves",
+    "href": "index.html#indentação-no-lugar-de-chaves",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Indentação no lugar de chaves",
+    "text": "Indentação no lugar de chaves\nfor x in array:\n    if x &lt; pivot:\n        less.append(x)\n    else:\n        greater.append(x)\n\n“Python utiliza espaços em branco (tabulações ou espaços) para estruturar o código, em vez de usar chaves, como fazem muitas outras linguagens como R, C++, Java e Perl.” (McKinney, 2017, p. 65)\n\n\nDois-pontos abrem o bloco; todo o bloco indentado com o mesmo espaço.\nRecomendação do McKinney: 4 espaços, nunca misturar tabs e espaços."
+  },
+  {
+    "objectID": "index.html#como-python-enxerga-o-código",
+    "href": "index.html#como-python-enxerga-o-código",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Como Python “enxerga” o código",
+    "text": "Como Python “enxerga” o código\n\nSem ; no fim da linha (só para separar várias instruções numa linha — evite).\n# inicia comentário.\n\nprint(\"Reached this line\")  # Simples informação sobre o status\n\n“Uma característica importante da linguagem Python é a consistência de seu modelo de objetos. Todo número, string, estrutura de dados, função, classe, módulo e assim por diante existe no interpretador Python em sua própria ‘caixa’, que é referenciada como um objeto Python.” (McKinney, 2017, p. 66)"
+  },
+  {
+    "objectID": "index.html#tudo-é-um-objeto",
+    "href": "index.html#tudo-é-um-objeto",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tudo é um objeto",
+    "text": "Tudo é um objeto\n\nNúmero, string, lista, função, módulo: tudo é objeto.\nTodo objeto tem um tipo e dados internos."
+  },
+  {
+    "objectID": "index.html#operadores-binários-e-comparações",
+    "href": "index.html#operadores-binários-e-comparações",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Operadores binários e comparações",
+    "text": "Operadores binários e comparações\n\n\n\nOperação\nDescrição\n\n\n\n\na + b, a - b, a * b, a / b\nAritmética básica\n\n\na // b\nDivisão pelo piso (descarta o resto)\n\n\na ** b\na elevado a b\n\n\na & b, a \\| b, a ^ b\nE, OU, OU-exclusivo lógicos\n\n\na == b, a != b\nIgual, diferente\n\n\na &lt; b, a &lt;= b, a &gt; b, a &gt;= b\nComparações\n\n\na is b\nSão o mesmo objeto?\n\n\n\n(Adaptado da Tabela 2.3, McKinney, 2017, p. 74)"
+  },
+  {
+    "objectID": "index.html#divisão-inteira-vs.-divisão-real",
+    "href": "index.html#divisão-inteira-vs.-divisão-real",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Divisão inteira vs. divisão real",
+    "text": "Divisão inteira vs. divisão real\n\n# | label: divisao\n3 / 2   # divisão real -&gt; float\n\n1.5\n\n\n\n# | label: floor\n3 // 2  # divisão pelo piso -&gt; descarta a parte fracionária\n\n1"
+  },
+  {
+    "objectID": "index.html#is-não-é",
+    "href": "index.html#is-não-é",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "is não é ==",
+    "text": "is não é ==\n\n# | label: is-vs-eq\na = [1, 2, 3]\nb = a          # mesma lista\nc = list(a)    # NOVA lista (cópia)\nprint(a is b)  # True: mesmo objeto\n\nTrue\n\nprint(a is not c)  # True: objetos diferentes\n\nTrue\n\nprint(a == c)  # True: conteúdo igual!\n\nTrue\n\n\n\nis compara identidade; == compara conteúdo.\nUso clássico: x is None."
+  },
+  {
+    "objectID": "index.html#objetos-mutáveis-e-imutáveis",
+    "href": "index.html#objetos-mutáveis-e-imutáveis",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Objetos mutáveis e imutáveis",
+    "text": "Objetos mutáveis e imutáveis\n\n# | label: mutavel\na_list = ['foo', 2, [4, 5]]\na_list[2] = (3, 4)   # pode modificar in-place\na_list\n\n['foo', 2, (3, 4)]\n\n\n&gt;&gt;&gt; a_tuple = (3, 5, (4, 5))\n&gt;&gt;&gt; a_tuple[1] = 'four'\nTypeError: 'tuple' object does not support item assignment\n\n\n\n\n\n\nNota\n\n\n\n“Somente porque você pode modificar um objeto isso não significa que você sempre deva fazê-lo… Se for possível, recomendo tentar evitar efeitos colaterais e favorecer a imutabilidade” (McKinney, 2017, p. 75)"
+  },
+  {
+    "objectID": "index.html#tipos-escalares",
+    "href": "index.html#tipos-escalares",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tipos escalares",
+    "text": "Tipos escalares\n\n“Esses tipos de ‘valores únicos’ às vezes são chamados de tipos escalares” (McKinney, 2017, p. 76)\n\n\n\n\nTipo\nDescrição\n\n\n\n\nNone\nValor “nulo” de Python (única instância)\n\n\nstr\nTexto (strings Unicode)\n\n\nbytes\nBytes puros (dados binários)\n\n\nfloat\nPonto flutuante, dupla precisão (64 bits)\n\n\nbool\nTrue ou False\n\n\nint\nInteiro com precisão arbitrária\n\n\n\n(Tabela 2.4, McKinney, 2017, p. 76)"
+  },
+  {
+    "objectID": "index.html#int-e-float",
+    "href": "index.html#int-e-float",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Int e float",
+    "text": "Int e float\n\n# | label: tip-int-float\nival = 17239871\nprint(ival ** 6)        # int não tem limite prático\n\n26254519291092456596965462913230729701102721\n\nfval = 7.243\nfval2 = 6.78e-5         # notação científica\nprint(fval2)\n\n6.78e-05\n\n\n\n# | label: tip-int-div-float\n3 / 2    # divisão de int com resto -&gt; float!\n\n1.5"
+  },
+  {
+    "objectID": "index.html#strings",
+    "href": "index.html#strings",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "strings",
+    "text": "strings\n\na = 'uma forma de escrever uma string'\nb = \"outra forma\"\nc = \"\"\"\nEsta é uma string mais longa que\nocupa várias linhas\n\"\"\"\nc.count('\\n')   # 3 quebras de linha\n\n3\n\n\n\nAspas simples ' ou duplas \"; aspas triplas para multilinhas.\nStrings são imutáveis: a[10] = 'f' gera TypeError."
+  },
+  {
+    "objectID": "index.html#strings-operações-básicas",
+    "href": "index.html#strings-operações-básicas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Strings: operações básicas",
+    "text": "Strings: operações básicas\n\na = 'isto é uma string'\nb = a.replace('string', 'String mais longa')\nprint(b)\n\nisto é uma String mais longa\n\nprint(a)   # a não mudou!\n\nisto é uma string\n\n\n\ns = 'python'\nprint(list(s))    # como sequência: list(s)\n\n['p', 'y', 't', 'h', 'o', 'n']\n\nprint(s[:3])      # fatiamento! (muito usado em dados)\n\npyt"
+  },
+  {
+    "objectID": "index.html#fatiamento-slicing",
+    "href": "index.html#fatiamento-slicing",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Fatiamento (slicing)",
+    "text": "Fatiamento (slicing)\n\nseq = [7, 2, 3, 6, 3, 5, 6, 0, 1, 9]\nprint(seq[1:5])    # índices 1 a 4 (fim exclusivo)\n\n[2, 3, 6, 3]\n\nprint(seq[:5])     # do início\n\n[7, 2, 3, 6, 3]\n\nprint(seq[5:])     # até o fim\n\n[5, 6, 0, 1, 9]\n\nprint(seq[-4:])    # 4 últimos (índice negativo conta do fim)\n\n[6, 0, 1, 9]\n\nprint(seq[::2])    # passo 2: elementos alternados\n\n[7, 3, 3, 6, 1]\n\nprint(seq[::-1])   # passo -1: inverte!\n\n[9, 1, 0, 6, 5, 3, 6, 3, 2, 7]\n\n\n\n“A semântica de fatiamento exige um pouco para que nos acostumemos, especialmente se sua experiência anterior for com R ou com o MATLAB.” (McKinney, 2017, p. 101)"
+  },
+  {
+    "objectID": "index.html#formatação-de-strings",
+    "href": "index.html#formatação-de-strings",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Formatação de strings",
+    "text": "Formatação de strings\n\ntemplate = '{0:.2f} {1:s} valem US${2:d}'\ntemplate.format(4.5560, 'Argentine Pesos', 1)\n\n'4.56 Argentine Pesos valem US$1'\n\n\n\n{0:.2f}: 1º argumento, float com 2 casas.\nHoje em dia também usamos f-strings: f'{nome} tem {idade} anos'."
+  },
+  {
+    "objectID": "index.html#datas-e-horas-módulo-datetime",
+    "href": "index.html#datas-e-horas-módulo-datetime",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Datas e horas: módulo datetime",
+    "text": "Datas e horas: módulo datetime\n\n“O módulo embutido datetime de Python disponibiliza os tipos datetime, date e time.” (McKinney, 2017, p. 83)\n\n\n# | label: tip-datetime-basico\nfrom datetime import datetime, date, time\ndt = datetime(2011, 10, 29, 20, 30, 21)\nprint(dt.day, dt.minute)\n\n29 30\n\nprint(dt.strftime('%m/%d/%Y %H:%M'))\n\n10/29/2011 20:30\n\ndatetime.strptime('20091031', '%Y%m%d')   # string -&gt; datetime\n\ndatetime.datetime(2009, 10, 31, 0, 0)"
+  },
+  {
+    "objectID": "index.html#datetime-diferenças-entre-datas",
+    "href": "index.html#datetime-diferenças-entre-datas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "datetime: diferenças entre datas",
+    "text": "datetime: diferenças entre datas\n\n# | label: tip-timedelta\ndt2 = datetime(2011, 11, 15, 22, 30)\ndelta = dt2 - dt\nprint(delta)          # timedelta(17, 7179) = 17 dias, 7179 s\n\n17 days, 1:59:39\n\nprint(dt + delta)     # soma um intervalo\n\n2011-11-15 22:30:00\n\n\n\n\n\n\n\n\nDica\n\n\nEm pandas, colunas de data (pd.to_datetime) usam exatamente essas ideias de formatos %Y, %m, %d — vale fixar agora."
+  },
+  {
+    "objectID": "index.html#if-elif-else",
+    "href": "index.html#if-elif-else",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "if, elif, else",
+    "text": "if, elif, else\n\n# | label: fluxo-if-elif-else\nx = 3\nif x &lt; 0:\n    print(\"It's negative\")\nelif x == 0:\n    print('Equal to zero')\nelif 0 &lt; x &lt; 5:\n    print('Positive but smaller than 5')\nelse:\n    print('Positive and larger than or equal to 5')\n\nPositive but smaller than 5\n\n\n\nCondições avaliadas em ordem: a primeira True vale; o resto é pulado."
+  },
+  {
+    "objectID": "index.html#eou-curto-circuito-e-comparações-encadeadas",
+    "href": "index.html#eou-curto-circuito-e-comparações-encadeadas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "e/ou, curto-circuito e comparações encadeadas",
+    "text": "e/ou, curto-circuito e comparações encadeadas\n\n# | label: fluxo-curto-circuito\na, b, c, d = 5, 7, 8, 4\nif a &lt; b or c &gt; d:      # c &gt; d nem é avaliado!\n    print('Made it')\n\nMade it\n\n\n\n# | label: fluxo-comparacao-encadeada\n4 &gt; 3 &gt; 2 &gt; 1\n\nTrue"
+  },
+  {
+    "objectID": "index.html#laços-for",
+    "href": "index.html#laços-for",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Laços for",
+    "text": "Laços for\n\n# | label: fluxo-for-basico\nfor value in [1, 2, None, 4]:\n    print(value)\n\n1\n2\nNone\n4\n\n\n\ncontinue: pula para a próxima iteração.\nbreak: encerra o laço (só o mais interno).\n\n\n# | label: fluxo-for-continue\nsequence = [1, 2, None, 4, None, 5]\ntotal = 0\nfor value in sequence:\n    if value is None:\n        continue      # ignora os None\n    total += value\nprint(total)          # 12\n\n12"
+  },
+  {
+    "objectID": "index.html#break",
+    "href": "index.html#break",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "break",
+    "text": "break\n\n# | label: fluxo-for-break\nsequence = [1, 2, 0, 4, 6, 5, 2, 1]\ntotal_until_5 = 0\nfor value in sequence:\n    if value == 5:\n        break         # para no primeiro 5\n    total_until_5 += value\nprint(total_until_5)  # 13\n\n13"
+  },
+  {
+    "objectID": "index.html#laços-while",
+    "href": "index.html#laços-while",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Laços while",
+    "text": "Laços while\n\n# | label: fluxo-while-break\nx = 256\ntotal = 0\nwhile x &gt; 0:\n    if total &gt; 500:\n        break\n    total += x\n    x = x // 2\nprint(total)\n\n504\n\n\n\npass: instrução “no-op” — ocupa um bloco vazio enquanto você não escreve o código final.\n\nif x &lt; 0:\n    print('negative!')\nelif x == 0:\n    # TODO: insira algo inteligente aqui\n    pass\nelse:\n    print('positive!')"
+  },
+  {
+    "objectID": "index.html#range",
+    "href": "index.html#range",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "range",
+    "text": "range\n\n# | label: fluxo-range-basico\nprint(list(range(10)))\n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\nprint(list(range(0, 20, 2)))   # início, fim (exclusivo), passo\n\n[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]\n\nprint(list(range(5, 0, -1)))   # passo negativo decrementa\n\n[5, 4, 3, 2, 1]\n\n\n\n“… range gera inteiros até o ponto final, porém sem incluí-lo.” (McKinney, 2017, p. 89)"
+  },
+  {
+    "objectID": "index.html#range-na-iteração-por-índice",
+    "href": "index.html#range-na-iteração-por-índice",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "range na iteração por índice",
+    "text": "range na iteração por índice\n\n# | label: fluxo-range-indice\nseq = ['a', 'b', 'c', 'd']\nfor i in range(len(seq)):\n    print(i, seq[i])\n\n0 a\n1 b\n2 c\n3 d\n\n\n\n\n\n\n\n\nDica\n\n\nO padrão mais idiomático é iterar direto (for x in seq) ou usar enumerate (vem a seguir)."
+  },
+  {
+    "objectID": "index.html#expressões-ternárias",
+    "href": "index.html#expressões-ternárias",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Expressões ternárias",
+    "text": "Expressões ternárias\n\n“Uma expressão ternária em Python permite combinar um bloco if-else que gera um valor em uma única linha ou expressão.” (McKinney, 2017, p. 90)\n\nvalue = true-expr if condition else false-expr\n\n# | label: fluxo-ternaria\nx = 5\n'Non-negative' if x &gt;= 0 else 'Negative'\n\n'Non-negative'"
+  },
+  {
+    "objectID": "index.html#visão-geral",
+    "href": "index.html#visão-geral",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Visão geral",
+    "text": "Visão geral\n\n“Começaremos com as estruturas de dados que são a força de trabalho de Python: tuplas, listas, dicionários e conjuntos.” (McKinney, 2017, p. 91)\n\n\n\n\nEstrutura\nSintaxe\nMutável?\nUso típico em análise\n\n\n\n\ntupla\n(1, 2, 3)\nnão\nretorno de função, colunas fixas\n\n\nlista\n[1, 2, 3]\nsim\ncoletar, acumular, ordenar\n\n\ndicionário\n{'a': 1}\nsim\nmapear chaves, rename de colunas\n\n\nset\n{1, 2, 3}\nsim\nvalores únicos, uniões"
+  },
+  {
+    "objectID": "index.html#tupla",
+    "href": "index.html#tupla",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tupla",
+    "text": "Tupla\n\n“Uma tupla é uma sequência imutável, de tamanho fixo, de objetos Python.” (McKinney, 2017, p. 91)\n\n\n# | label: dad-tupla-criar\ntup = 4, 5, 6\nprint(tup)\n\n(4, 5, 6)\n\nnested_tup = (4, 5, 6), (7, 8)\nprint(nested_tup)\n\n((4, 5, 6), (7, 8))\n\ntuple([4, 0, 2])\n\n(4, 0, 2)"
+  },
+  {
+    "objectID": "index.html#tuplas-indexação-e-por-que-existem",
+    "href": "index.html#tuplas-indexação-e-por-que-existem",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tuplas: indexação e por que existem",
+    "text": "Tuplas: indexação e por que existem\n\n# | label: dad-tupla-index\ntup = tuple('string')\nprint(tup[0])         # indexado a partir de 0\n\ns\n\nprint(tup[:2])\n\n('s', 't')\n\n\n\n\n\n\n\n\nNota\n\n\nTuplas são a base do desempacotamento — e das colunas de um DataFrame: for i, row in df.iterrows() devolve tuplas."
+  },
+  {
+    "objectID": "index.html#desempacotamento-unpacking",
+    "href": "index.html#desempacotamento-unpacking",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Desempacotamento (unpacking)",
+    "text": "Desempacotamento (unpacking)\n\n# | label: dad-unpacking\na, b = 1, 2\nprint(a, b)\n\n1 2\n\nb, a = a, b           # troca em uma linha!\nprint(a, b)\n\n2 1\n\nseq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]\nfor a, b, c in seq:\n    print(f'a={a}, b={b}, c={c}')\n\na=1, b=2, c=3\na=4, b=5, c=6\na=7, b=8, c=9"
+  },
+  {
+    "objectID": "index.html#lista",
+    "href": "index.html#lista",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Lista",
+    "text": "Lista\n\nA lista é o contrário da tupla: mutável e de tamanho flexível.\n\n\n# | label: dad-lista-append-insert\nb_list = ['foo', 'peekaboo', 'baz', 'foo']\nb_list.append('dwarf')      # adiciona ao fim\nprint(b_list)\n\n['foo', 'peekaboo', 'baz', 'foo', 'dwarf']\n\nb_list.insert(1, 'red')     # insere numa posição (custoso!)\nprint(b_list)\n\n['foo', 'red', 'peekaboo', 'baz', 'foo', 'dwarf']"
+  },
+  {
+    "objectID": "index.html#lista-pop-remove-in",
+    "href": "index.html#lista-pop-remove-in",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Lista: pop, remove, in",
+    "text": "Lista: pop, remove, in\n\n# | label: dad-lista-pop-remove\nb_list = ['foo', 'red', 'baz', 'dwarf']\nremovido = b_list.pop(2)     # remove e DEVOLVE o elemento\nprint(removido, b_list)\n\nbaz ['foo', 'red', 'dwarf']\n\nb_list.remove('foo')         # remove pela primeira ocorrência do VALOR\nprint(b_list)\n\n['red', 'dwarf']\n\nprint('dwarf' in b_list)     # pertence? (verificação linear -&gt; lenta)\n\nTrue\n\nprint('dwarf' not in b_list)\n\nFalse"
+  },
+  {
+    "objectID": "index.html#lista-concatenar-e-estender",
+    "href": "index.html#lista-concatenar-e-estender",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Lista: concatenar e estender",
+    "text": "Lista: concatenar e estender\n\n# | label: dad-lista-concat-extend\nprint([4, None, 'foo'] + [7, 8, (2, 3)])   # + cria nova lista\n\n[4, None, 'foo', 7, 8, (2, 3)]\n\nx = [4, None, 'foo']\nx.extend([7, 8, (2, 3)])                   # extend modifica in-place\nx\n\n[4, None, 'foo', 7, 8, (2, 3)]\n\n\n\n\n\n\n\n\nDica\n\n\n\n“Usar extend para concatenar elementos em uma lista existente, especialmente se você estiver construindo uma lista grande, em geral é preferível.” (McKinney, 2017, p. 98)"
+  },
+  {
+    "objectID": "index.html#lista-sort",
+    "href": "index.html#lista-sort",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Lista: sort",
+    "text": "Lista: sort\n\n# | label: dad-lista-sort\na = [7, 2, 5, 1, 3]\na.sort()                 # ordena in-place\nprint(a)\n\n[1, 2, 3, 5, 7]\n\nb = ['saw', 'small', 'He', 'foxes']\nb.sort(key=len)          # ordena por critério (key)\nb\n\n['He', 'saw', 'small', 'foxes']"
+  },
+  {
+    "objectID": "index.html#funções-embutidas-para-sequências",
+    "href": "index.html#funções-embutidas-para-sequências",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Funções embutidas para sequências",
+    "text": "Funções embutidas para sequências\n\n“Python tem um punhado de funções de sequência úteis com as quais você deve ter familiaridade” (McKinney, 2017, p. 102)\n\n\nenumerate: par (índice, valor) durante a iteração\nsorted: nova lista ordenada (cópia)\nzip: “pareia” sequências\nreversed: itera em ordem inversa"
+  },
+  {
+    "objectID": "index.html#enumerate",
+    "href": "index.html#enumerate",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "enumerate",
+    "text": "enumerate\n\n# | label: dad-enumerate\nsome_list = ['foo', 'bar', 'baz']\nmapping = {}\nfor i, v in enumerate(some_list):\n    mapping[v] = i\nmapping\n\n{'foo': 0, 'bar': 1, 'baz': 2}"
+  },
+  {
+    "objectID": "index.html#sorted",
+    "href": "index.html#sorted",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "sorted",
+    "text": "sorted\n\n# | label: dad-sorted\nprint(sorted([7, 1, 2, 6, 0, 3, 2]))\n\n[0, 1, 2, 2, 3, 6, 7]\n\nprint(sorted('horse race'))\n\n[' ', 'a', 'c', 'e', 'e', 'h', 'o', 'r', 'r', 's']\n\n\n\nsorted devolve nova lista; .sort() ordena in-place."
+  },
+  {
+    "objectID": "index.html#zip",
+    "href": "index.html#zip",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "zip",
+    "text": "zip\n\n# | label: dad-zip\nseq1 = ['foo', 'bar', 'baz']\nseq2 = ['one', 'two', 'three']\nprint(list(zip(seq1, seq2)))\n\n[('foo', 'one'), ('bar', 'two'), ('baz', 'three')]\n\nfor i, (a, b) in enumerate(zip(seq1, seq2)):\n    print(f'{i}: {a}, {b}')\n\n0: foo, one\n1: bar, two\n2: baz, three\n\n\n\n# | label: dad-zip-unzip\npitchers = [('Nolan', 'Ryan'), ('Roger', 'Clemens'), ('Schilling', 'Curt')]\nfirst_names, last_names = zip(*pitchers)   # \"unzip\": colunas!\nprint(first_names)\n\n('Nolan', 'Roger', 'Schilling')\n\nprint(last_names)\n\n('Ryan', 'Clemens', 'Curt')\n\n\n\n\n\n\n\n\nDica\n\n\nzip + lista de tuplas é exatamente o que o pandas faz ao construir um DataFrame de registros: [('a', 1), ('b', 2)] vira colunas."
+  },
+  {
+    "objectID": "index.html#dict",
+    "href": "index.html#dict",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "dict",
+    "text": "dict\n\n“dict provavelmente é a estrutura de dados embutida mais importante de Python… Consiste em uma coleção de pares chave-valor de tamanho flexível” (McKinney, 2017, p. 104)\n\n\n# | label: dad-dict-criar\nd1 = {'a': 'some value', 'b': [1, 2, 3, 4]}\nprint(d1)\n\n{'a': 'some value', 'b': [1, 2, 3, 4]}\n\nd1[7] = 'an integer'\nprint(d1['b'])\n\n[1, 2, 3, 4]\n\nprint('b' in d1)\n\nTrue"
+  },
+  {
+    "objectID": "index.html#dict-del-e-pop",
+    "href": "index.html#dict-del-e-pop",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "dict: del e pop",
+    "text": "dict: del e pop\n\n# | label: dad-dict-del-pop\nd1 = {'a': 'some value', 'b': [1, 2, 3, 4], 'dummy': 'another value'}\nprint(d1.pop('dummy'))   # devolve e remove\n\nanother value\n\nprint(d1)\n\n{'a': 'some value', 'b': [1, 2, 3, 4]}\n\ndel d1['b']\nd1\n\n{'a': 'some value'}"
+  },
+  {
+    "objectID": "index.html#dict-keys-values-items",
+    "href": "index.html#dict-keys-values-items",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "dict: keys, values, items",
+    "text": "dict: keys, values, items\n\n# | label: dad-dict-keys-items\nd1 = {'a': 1, 'b': 2, 'c': 3}\nprint(list(d1.keys()))\n\n['a', 'b', 'c']\n\nprint(list(d1.values()))\n\n[1, 2, 3]\n\nfor k, v in d1.items():\n    print(k, v)\n\na 1\nb 2\nc 3"
+  },
+  {
+    "objectID": "index.html#dict-valores-default",
+    "href": "index.html#dict-valores-default",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "dict: valores default",
+    "text": "dict: valores default\n\n“Por padrão, get devolverá None se a chave não estiver presente” (McKinney, 2017, p. 107)\n\n\n# | label: dad-dict-get-default\nd = {'a': 1}\nprint(d.get('x', 0))        # 0 (default), em vez de KeyError\n\n0\n\nprint(d.get('a', 0))        # 1\n\n1"
+  },
+  {
+    "objectID": "index.html#dict-uso-típico-em-análise",
+    "href": "index.html#dict-uso-típico-em-análise",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "dict: uso típico em análise",
+    "text": "dict: uso típico em análise\n\n# | label: dad-dict-remap-pnad\n# traduzir códigos da PNAD para rótulos legíveis:\ncodigos = {1: 'Branca', 2: 'Preta', 3: 'Parda', 4: 'Amarela', 5: 'Indígena'}\nrespostas = [3, 1, 3, 5, 2]\n[codigos.get(r, 'Sem resposta') for r in respostas]\n\n['Parda', 'Branca', 'Parda', 'Indígena', 'Preta']\n\n\n\n\n\n\n\n\nDica\n\n\nEsse padrão é o .map(dicionario) do pandas — aparecerá na aula 03."
+  },
+  {
+    "objectID": "index.html#set",
+    "href": "index.html#set",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "set",
+    "text": "set\n\n“Um conjunto (set) é uma coleção não ordenada de elementos únicos.” (McKinney, 2017, p. 109)\n\n\n# | label: dad-set-criar\nprint(set([2, 2, 2, 1, 3, 3]))\n\n{1, 2, 3}\n\nprint({2, 2, 2, 1, 3, 3})\n\n{1, 2, 3}\n\n\n\nElimina duplicatas automaticamente."
+  },
+  {
+    "objectID": "index.html#set-operações-de-conjunto",
+    "href": "index.html#set-operações-de-conjunto",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "set: operações de conjunto",
+    "text": "set: operações de conjunto\n\n# | label: dad-set-operacoes\na = {1, 2, 3, 4, 5}\nb = {3, 4, 5, 6, 7, 8}\nprint(a.union(b))   # união: a | b\n\n{1, 2, 3, 4, 5, 6, 7, 8}\n\nprint(a & b)        # intersecção\n\n{3, 4, 5}\n\nprint(a - b)        # diferença\n\n{1, 2}\n\nprint(a ^ b)        # diferença simétrica (em um mas não em ambos)\n\n{1, 2, 6, 7, 8}\n\n\n\n# | label: dad-set-subset\na_set = {1, 2, 3, 4, 5}\nprint({1, 2, 3}.issubset(a_set))\n\nTrue\n\nprint(a_set.issuperset({1, 2, 3}))\n\nTrue\n\n\n\n\n\n\n\n\nDica\n\n\nVerificar pertinência em set é instantânea (hash); em lista, é lenta (varre um por um). Para “limpar” valores únicos de uma coluna, set() ou .unique() do pandas."
+  },
+  {
+    "objectID": "index.html#list-comprehension",
+    "href": "index.html#list-comprehension",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "List comprehension",
+    "text": "List comprehension\n\n“List comprehensions (abrangências de lista) são um dos recursos mais amados da linguagem Python.” (McKinney, 2017, p. 112)\n\n[expr for val in collection if condition]\nequivale a:\nresult = []\nfor val in collection:\n    if condition:\n        result.append(expr)\n\n# | label: fun-listcomp\nstrings = ['a', 'as', 'bat', 'car', 'dove', 'python']\n[x.upper() for x in strings if len(x) &gt; 2]\n\n['BAT', 'CAR', 'DOVE', 'PYTHON']"
+  },
+  {
+    "objectID": "index.html#set-e-dict-comprehensions",
+    "href": "index.html#set-e-dict-comprehensions",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Set e dict comprehensions",
+    "text": "Set e dict comprehensions\n\n# | label: fun-set-dict-comp\nstrings = ['a', 'as', 'bat', 'car', 'dove', 'python']\nprint({len(x) for x in strings})          # set comprehension\n\n{1, 2, 3, 4, 6}\n\nd = {x: len(x) for x in strings}          # dict comprehension\nd\n\n{'a': 1, 'as': 2, 'bat': 3, 'car': 3, 'dove': 4, 'python': 6}"
+  },
+  {
+    "objectID": "index.html#comprehensions-aninhadas",
+    "href": "index.html#comprehensions-aninhadas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comprehensions aninhadas",
+    "text": "Comprehensions aninhadas\n\n# | label: fun-comp-aninhada\nall_data = [['John', 'Emily', 'Michael', 'Mary', 'Steven'],\n            ['Maria', 'Juan', 'Javier', 'Natalia', 'Pilar']]\n[name for names in all_data for name in names if name.count('e') &gt;= 2]\n\n['Steven']\n\n\n\n# | label: fun-comp-flatten\nsome_tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]\n[x for tup in some_tuples for x in tup]    # \"lineariza\"\n\n[1, 2, 3, 4, 5, 6, 7, 8, 9]"
+  },
+  {
+    "objectID": "index.html#funções-def-e-return",
+    "href": "index.html#funções-def-e-return",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Funções: def e return",
+    "text": "Funções: def e return\n\n“As funções são o principal e mais importante método de organização de código e reutilização em Python.” (McKinney, 2017, p. 115)\n\n\n# | label: fun-def-return\ndef my_function(x, y, z=1.5):\n    if z &gt; 1:\n        return z * (x + y)\n    else:\n        return z / (x + y)\n\nprint(my_function(5, 6, z=0.7))\n\n0.06363636363636363\n\nprint(my_function(10, 20))    # z usa o default 1.5\n\n45.0\n\n\n\nArgumentos posicionais: x, y — vêm primeiro.\nArgumentos nomeados (keyword): z=... — têm default, podem ser passados fora de ordem."
+  },
+  {
+    "objectID": "index.html#funções-sem-return-devolvem-none",
+    "href": "index.html#funções-sem-return-devolvem-none",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Funções sem return devolvem None",
+    "text": "Funções sem return devolvem None\n\n# | label: fun-sem-return-none\ndef nada():\n    x = 1\n\nprint(nada())     # None\n\nNone"
+  },
+  {
+    "objectID": "index.html#devolvendo-múltiplos-valores",
+    "href": "index.html#devolvendo-múltiplos-valores",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Devolvendo múltiplos valores",
+    "text": "Devolvendo múltiplos valores\n\n# | label: fun-multi-retorno\ndef estatisticas(vals):\n    return min(vals), max(vals), sum(vals) / len(vals)\n\nmn, mx, media = estatisticas([1, 2, 3, 4, 5])\nprint(f'mín={mn}, máx={mx}, média={media:.1f}')\n\nmín=1, máx=5, média=3.0\n\n\n\n“O que está acontecendo nesse exemplo é que a função, na verdade, devolve apenas um objeto, uma tupla no caso, que está então sendo desempacotada nas variáveis de resultado.” (McKinney, 2017, p. 118)"
+  },
+  {
+    "objectID": "index.html#funções-são-objetos",
+    "href": "index.html#funções-são-objetos",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Funções são objetos",
+    "text": "Funções são objetos\n\n“Como as funções Python são objetos, muitas construções podem ser facilmente expressas, as quais seriam difíceis em outras linguagens.” (McKinney, 2017, p. 118)\n\n\n# | label: fun-funcoes-objeto\ndef clean(x):\n    return x.strip().title()\n\nops = [str.strip, str.title, clean]\ns = '  alagoas  '\nfor f in ops:\n    s = f(s)\ns\n\n'Alagoas'"
+  },
+  {
+    "objectID": "index.html#map-e-funções-como-argumento",
+    "href": "index.html#map-e-funções-como-argumento",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "map e funções como argumento",
+    "text": "map e funções como argumento\n\n# | label: fun-map\nestados = ['  Alabama ', 'Georgia!', 'georgia', 'Florida']\nlist(map(str.strip, estados))\n\n['Alabama', 'Georgia!', 'georgia', 'Florida']"
+  },
+  {
+    "objectID": "index.html#funções-anônimas-lambda",
+    "href": "index.html#funções-anônimas-lambda",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Funções anônimas (lambda)",
+    "text": "Funções anônimas (lambda)\n\n“Python oferece suporte para o que chamamos de funções anônimas ou lambdas – uma forma de escrever funções constituídas de uma única instrução, cujo resultado é o valor de retorno.” (McKinney, 2017, p. 120)\n\n\n# | label: fun-lambda\nequiv_anon = lambda x: x * 2\nprint(equiv_anon(4))\n\n8\n\nstrings = ['foo', 'card', 'bar', 'aaaa', 'abab']\nstrings.sort(key=lambda x: len(set(list(x))))   # nº de letras distintas\nstrings\n\n['aaaa', 'foo', 'abab', 'bar', 'card']\n\n\n\n\n\n\n\n\nDica\n\n\n\n“Essas funções são particularmente convenientes na análise de dados, pois… há muitos casos em que as funções de transformação de dados aceitarão funções como argumentos.” (McKinney, 2017, p. 120)"
+  },
+  {
+    "objectID": "index.html#geradores-visão-geral",
+    "href": "index.html#geradores-visão-geral",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Geradores (visão geral)",
+    "text": "Geradores (visão geral)\n\n# | label: fun-gerador\ndef squares(n=4):\n    for i in range(1, n + 1):\n        yield i ** 2\n\ngen = squares()\nprint(list(gen))     # só executa quando \"pedido\"\n\n[1, 4, 9, 16]\n\ngen2 = (x ** 2 for x in range(5))   # expressão geradora\nsum(gen2)\n\n30\n\n\n\n\n\n\n\n\nNota\n\n\nUm gerador produz valores sob demanda (“lazy”). O sum(x ** 2 for x in range(100)) do McKinney (p. 124) evita criar uma lista inteira na memória."
+  },
+  {
+    "objectID": "index.html#erros-e-tratamento-de-exceção",
+    "href": "index.html#erros-e-tratamento-de-exceção",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Erros e tratamento de exceção",
+    "text": "Erros e tratamento de exceção\n\n# | label: fun-try-except\n# | echo: true\ndef attempt_float(x):\n    try:\n        return float(x)\n    except (TypeError, ValueError):\n        return x\n\nprint(attempt_float('1.2345'))\n\n1.2345\n\nprint(attempt_float('something'))\n\nsomething\n\n\n\ntry/except: falha de modo elegante em vez de derrubar o programa.\nCapturar (TypeError, ValueError) na tupla limita o que é “engolido”."
+  },
+  {
+    "objectID": "index.html#with-open",
+    "href": "index.html#with-open",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "with open",
+    "text": "with open\n#| label: arq-open-close\npath = 'examples/segismundo.txt'\nf = open(path)                 # modo de leitura (default)\nlines = [x.rstrip() for x in open(path)]\nf.close()                      # importante fechar!\n\n“Quando se usa open para criar objetos de arquivo, é importante fechar explicitamente o arquivo ao acabar de utilizá-lo.” (McKinney, 2017, p. 130)"
+  },
+  {
+    "objectID": "index.html#a-forma-idiomática-with",
+    "href": "index.html#a-forma-idiomática-with",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "A forma idiomática: with",
+    "text": "A forma idiomática: with\n\nwith open('cidades.csv', 'w', encoding='utf-8') as f:\n    f.write('municipio,uf\\nRecife,PE\\nOlinda,PE\\n')   # escreve e fecha sozinho\n\n33\n\nwith open('cidades.csv', encoding='utf-8') as f:\n    print(f.read())    # lê o que foi gravado\n\nmunicipio,uf\nRecife,PE\nOlinda,PE\n\n\n\nModos: 'r' leitura, 'w' escrita (sobrescreve!), 'x' falha se existir, 'a' anexa. 'b' para binário.\n\n\n\n\n\n\n\nImportante\n\n\nPróxima aula (22/10): tudo isso aplicado em tabelas com pandas — Series, DataFrame, seleção, filtragem e transformação."
+  },
+  {
+    "objectID": "index.html#comentando-código-em-python",
+    "href": "index.html#comentando-código-em-python",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comentando código em Python",
+    "text": "Comentando código em Python\n\n“Qualquer texto precedido pelo sinal de sustenido (#) será ignorado pelo interpretador Python. Com frequência, ele é usado para adicionar comentários ao código.” (McKinney, 2017, p. 66)\n\n\nPython tem um único marcador de comentário: o #.\n# vale do símbolo até o fim da linha.\nNão existe comentário de múltiplas linhas “oficial” (como /* */ em C) — usam-se vários # ou docstrings (ver adiante).\n\n# isto é um comentário em linha própria\nx = 5  # comentário após o código também funciona\n\n# isto é um comentário: o interpretador ignora a linha inteira\nx = 5  # comentário após o código também funciona\nprint(x)\n\n5"
+  },
+  {
+    "objectID": "index.html#comentando-código-para-desligar-linhas",
+    "href": "index.html#comentando-código-para-desligar-linhas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comentando código para “desligar” linhas",
+    "text": "Comentando código para “desligar” linhas\nUma prática comum e útil: comentar blocos para desativar código sem apagar (o McKinney cita isso como exemplo na p. 66):\n\nresults = []\nfor line in ['foo bar', 'baz']:\n    # mantém as linhas em branco por enquanto\n    # if len(line) == 0:\n    #     continue\n    results.append(line.replace('foo', 'bar'))\nprint(results)\n\n['bar bar', 'baz']\n\n\n\nAs linhas # if len(line) == 0: e # continue ficam “desligadas”.\nAtalhos de teclado: no Jupyter/Colab, Ctrl+/ (ou Cmd+/ no Mac) comenta/descomenta a seleção.\nNo VS Code: Ctrl+/ também; no RStudio com Python: Ctrl+Shift+C."
+  },
+  {
+    "objectID": "index.html#onde-colocar-o-comentário",
+    "href": "index.html#onde-colocar-o-comentário",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Onde colocar o comentário",
+    "text": "Onde colocar o comentário\n\n# ANTES do código: descreve a intenção do bloco\nresults = []\nfor line in ['a1', 'a2']:\n    results.append(line)  # DEPOIS: documenta a linha específica\nprint(results)\n\n['a1', 'a2']\n\n\n\n“Comentários também podem ocorrer após uma linha de código executado. Embora alguns programadores prefiram colocar os comentários na linha que antecede uma linha de código em particular, colocá-los depois às vezes pode ser conveniente.” (McKinney, 2017, p. 66)\n\n\nAntes: explique o porquê do bloco (a intenção, a decisão).\nDepois: detalhe uma linha específica, sem virar tradução literal do código."
+  },
+  {
+    "objectID": "index.html#docstrings-documentação-de-verdade",
+    "href": "index.html#docstrings-documentação-de-verdade",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Docstrings: documentação “de verdade”",
+    "text": "Docstrings: documentação “de verdade”\nDocstring é a primeira string de uma função/módulo/classe, usada pelo help():\n\ndef estatisticas(vals):\n    \"\"\"Devolve (mínimo, máximo, média) de uma sequência numérica.\"\"\"\n    return min(vals), max(vals), sum(vals) / len(vals)\n\nhelp(estatisticas)\n\nHelp on function estatisticas in module __main__:\n\nestatisticas(vals)\n    Devolve (mínimo, máximo, média) de uma sequência numérica.\n\n\n\nAspas triplas \"\"\"...\"\"\"; não é comentário: o Python guarda e o help() mostra.\n# = nota para quem lê o código; docstring = documentação para quem usa a função.\nConvention: uma linha curta; se precisar de mais detalhe, linhas seguintes com parâmetros e retorno."
+  },
+  {
+    "objectID": "index.html#bom-vs.-mau-comentário",
+    "href": "index.html#bom-vs.-mau-comentário",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Bom vs. mau comentário",
+    "text": "Bom vs. mau comentário\n# MAU: repete o que o código já diz (ruído)\ni += 1  # soma 1 ao i\n\n# BOM: explica o porquê, o contexto, a fonte\ni += 1  # pula o cabeçalho do CSV (linha 1 é o header)\n# valores imputados com a média do IBGE 2010 (ver docs/receita.md)\nrenda[renda.isna()] = renda.mediana\n\n\n\n\n\n\nDica\n\n\nRegras de bolso para a análise de dados: - Comente decisões (“por que descartar essas linhas?”), não sintaxe. - Cite a fonte do dado ou do critério (documentação, relatório). - Use # TODO: para marcar o que falta; o pass do slide anterior é um caso. - Se o código precisa de MUITO comentário para ser entendido, considere renomear variáveis ou quebrar em funções — código claro &lt; comentário compensatório."
+  },
+  {
+    "objectID": "index.html#zen-de-python-legibilidade",
+    "href": "index.html#zen-de-python-legibilidade",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Zen de Python: legibilidade",
+    "text": "Zen de Python: legibilidade\n\n“Explicit is better than implicit. Readability counts.” — The Zen of Python (import this)\n\nimport this\n\nComentários fazem parte da legibilidade: o público-alvo é você daqui a 3 meses.\nNo padrão PEP 8: comentários devem ter o # seguido de um espaço (# assim).\n\n\n\n\n\n\n\nNota\n\n\nNo Jupyter/Colab, células markdown também são uma forma de comentar a análise — para texto corrido (metodologia, fontes, interpretação), prefira células markdown; reservar # para notas pontuais no código."
+  },
+  {
+    "objectID": "index.html#chamando-funções-e-métodos",
+    "href": "index.html#chamando-funções-e-métodos",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Chamando funções e métodos",
+    "text": "Chamando funções e métodos\n\n“Chame funções usando parênteses e passando zero ou mais argumentos, opcionalmente atribuindo o valor devolvido a uma variável.” (McKinney, 2017, p. 66)\n\nresult = f(x, y, z)      # chamada de função\nobj.some_method(x, y, z) # chamada de método (função associada a um objeto)\n\nFunção: pode existir “solta” (f(...)).\nMétodo: função associada a um objeto, chamada pelo ponto (objeto.metodo(...)).\nQuase todo objeto tem métodos — texto.upper(), lista.append(x), e, no pandas, df.head()."
+  },
+  {
+    "objectID": "index.html#indentação-no-lugar-de-chaves-1",
+    "href": "index.html#indentação-no-lugar-de-chaves-1",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Indentação no lugar de chaves",
+    "text": "Indentação no lugar de chaves\nfor x in array:\n    if x &lt; pivot:\n        less.append(x)\n    else:\n        greater.append(x)\n\n“Python utiliza espaços em branco (tabulações ou espaços) para estruturar o código, em vez de usar chaves, como fazem muitas outras linguagens como R, C++, Java e Perl.” (McKinney, 2017, p. 65)\n\n\nDois-pontos abrem o bloco; todo o bloco indentado com o mesmo espaço.\nRecomendação do McKinney: 4 espaços, nunca misturar tabs e espaços."
+  },
+  {
+    "objectID": "index.html#como-python-enxerga-o-código-1",
+    "href": "index.html#como-python-enxerga-o-código-1",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Como Python “enxerga” o código",
+    "text": "Como Python “enxerga” o código\n\nSem ; no fim da linha (só para separar várias instruções numa linha — evite).\n# inicia comentário.\n\nprint(\"Reached this line\")  # Simples informação sobre o status\n\n“Uma característica importante da linguagem Python é a consistência de seu modelo de objetos. Todo número, string, estrutura de dados, função, classe, módulo e assim por diante existe no interpretador Python em sua própria ‘caixa’, que é referenciada como um objeto Python.” (McKinney, 2017, p. 66)"
+  },
+  {
+    "objectID": "index.html#tudo-é-um-objeto-1",
+    "href": "index.html#tudo-é-um-objeto-1",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tudo é um objeto",
+    "text": "Tudo é um objeto\n\nNúmero, string, lista, função, módulo: tudo é objeto.\nTodo objeto tem um tipo e dados internos."
+  },
+  {
+    "objectID": "index.html#modulo-operator-returns-the-remainder",
+    "href": "index.html#modulo-operator-returns-the-remainder",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "modulo operator (%) returns the remainder",
+    "text": "modulo operator (%) returns the remainder\n\n# | label: op-modulo-resto\n4 % 2 \n\n0\n\n5 % 2\n\n1\n\n\nin\n\n# | label: op-in-string\nmy_str = 'Hello world'\n\nprint('Hello' in my_str)  # True\n\nTrue\n\nprint('hey' in my_str)    # False\n\nFalse\n\nprint('hi' in my_str)    # False\n\nFalse\n\n\n+= string interpolation\nO processo de inserir variáveis e expressões em uma string é chamado de interpolação de strings. Realiza tanto a concatenação quanto a atribuição em uma única etapa.\n\n# | label: op-mais-igual-string\nnome = 'John Doe'\nidade = 26\n\nnome_e_idade = nome  # Começa com o nome\nnome_e_idade += str(idade)  # Acrescenta a idade como string\n\nprint(nome_e_idade)\n\nJohn Doe26\n\n\noperador walrus :=\n(operador morsa) em Python, representado por :=, permite atribuir um valor a uma variável e, ao mesmo tempo, usar esse valor dentro de uma expressão maior, tudo na mesma linha . Ele recebe esse nome porque := lembra os olhos e as presas de uma morsa\nex 1\n\n# | label: op-walrus-ex1\n# antes\nvalores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nn = len(valores)\nif n &gt; 10:\n    print(n)  # 11\n\n11\n\n# depois (walrus: atribui e testa na mesma linha)\nif (n := len(valores)) &gt; 10:\n    print(n)  # 11\n\n11\n\n\nex 2\nSem walrus:\n# | label: op-sem-walrus\nvendas = int(input(\"Vendas do funcionário: \"))  # interativo: roda no terminal/Colab\nif vendas &gt; 1000:\n    bonus = 0.05 * vendas\nCom walrus:\n# | label: op-walrus-input\nif (vendas := int(input(\"Vendas do funcionário: \"))) &gt; 1000:  # input + teste, mesma linha\n    bonus = 0.05 * vendas\nAqui, vendas recebe o valor do input e já é usado na comparação &gt; 1000, tudo na mesma linha"
+  },
+  {
+    "objectID": "index.html#investigação-de-tipos",
+    "href": "index.html#investigação-de-tipos",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Investigação de Tipos",
+    "text": "Investigação de Tipos\n\n# inteiro ou 'integer'\ntype(42)                # &lt;class 'int'&gt;\n\n&lt;class 'int'&gt;\n\n# Ponto flutuante, ou float\ntype(3.14)              # &lt;class 'float'&gt;\n\n&lt;class 'float'&gt;\n\ntype(\"Hello\")           # &lt;class 'str'&gt;\n\n&lt;class 'str'&gt;\n\n# Booleano\ntype(True)              # &lt;class 'bool'&gt;\n\n&lt;class 'bool'&gt;\n\n1&gt;2\n\nFalse\n\n# none\ntype(None)              # &lt;class 'NoneType'&gt;\n\n&lt;class 'NoneType'&gt;\n\nisinstance(3.14, float) # True\n\nTrue\n\nissubclass(int, object) # True – tudo herda de object\n\nTrue"
+  },
+  {
+    "objectID": "index.html#conversão-de-tipos-type-conversion",
+    "href": "index.html#conversão-de-tipos-type-conversion",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Conversão de Tipos (Type Conversion)",
+    "text": "Conversão de Tipos (Type Conversion)\n\nint(\"42\")        # 42\n\n42\n\nfloat(\"3.14\")    # 3.14\n\n3.14\n\nstr(42)          # \"42\"\n\n'42'\n\nbool(1)          # True\n\nTrue\n\nlist(\"abc\")      # ['a', 'b', 'c']\n\n['a', 'b', 'c']"
+  },
+  {
+    "objectID": "index.html#tipo-de-dados-strings",
+    "href": "index.html#tipo-de-dados-strings",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tipo de dados: strings",
+    "text": "Tipo de dados: strings\n\nminha_str = 'Olá Mundo'\nminha_str_1 = 'Olá'\nminha_str_2 = \"Mundo\"\nminha_str_3 = \"\"\"String\nmultilinha\"\"\"\nmsg = \"Está um dia ensolarado\"\n\ncitacao = 'Ela disse, \"Olá Mundo!\"'\n\n# Escape\n\nmsg = 'Está um dia ensolarado'\nlen(minha_str)\n\nconcatenação de strings\ncombine múltiplas strings juntas com o sinal de mais (+)\n\nminha_str_1 = 'Olá'\nminha_str_2 = \"Mundo\"\nminha_str_1 + ' ' + minha_str_2\n\n'Olá Mundo'\n\n\nEle não transforma integer em string automaticamente.\n\nnome = 'João Silva'\nidade = 26\n\nnome + str(idade)\n\n'João Silva26'"
+  },
+  {
+    "objectID": "index.html#f-strings",
+    "href": "index.html#f-strings",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "f-strings",
+    "text": "f-strings\nabreviação de formatted string literals — literais de string formatados\n\nnome = 'João Silva'\nidade = 26\n# opção 1\nnome_e_idade = 'Meu nome é ' + nome + ' e eu tenho ' + str(idade) + ' anos'\n# opção 2 \nnome_e_idade = 'Meu nome é %s e eu tenho %d anos' % (nome, idade)\n# opção 3: com f-string\nnome_e_idade = f'Meu nome é {nome} e eu tenho {idade} anos'\nprint(nome_e_idade) # Meu nome é João Silva e eu tenho 26 anos\n\nMeu nome é João Silva e eu tenho 26 anos"
+  },
+  {
+    "objectID": "index.html#números-e-matemática-numbers-math",
+    "href": "index.html#números-e-matemática-numbers-math",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Números e Matemática (Numbers & Math)",
+    "text": "Números e Matemática (Numbers & Math)\nOperadores Aritméticos (Arithmetic Operators)\n\n10 + 3   # 13\n\n13\n\n10 - 3   # 7\n\n7\n\n10 * 3   # 30\n\n30\n\n10 / 3   # 3.3333333333333335\n\n3.3333333333333335\n\n10 // 3  # 3\n\n3\n\n10 % 3   # 1\n\n1\n\n2 ** 3   # 8\n\n8\n\n\nFunções Úteis (Useful Functions)\n\nabs(-5)           # 5\n\n5\n\nround(2.7)        # 2.7\n\n3\n\nround(1.59123, 2) # 1.59 \n\n1.59\n\nmin(3, 1, 2)      # 1\n\n1\n\nmax(3, 1, 2)      # 3\n\n3\n\nsum([1, 2, 3])    # 6\n\n6"
+  },
+  {
+    "objectID": "index.html#if-elif-else-se-senãose-senão",
+    "href": "index.html#if-elif-else-se-senãose-senão",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "If-Elif-Else (Se-SenãoSe-Senão)",
+    "text": "If-Elif-Else (Se-SenãoSe-Senão)\n\nage = 10\n\nif age &lt; 13:\n    category = \"criança\"\nelif age &lt; 20:\n    category = \"adolescente\"\nelse:\n    category = \"adulto\"\n\nOperadores de Comparação (Comparison Operators)\n\nx = 10 \ny = 12 \n\nx == y  # Igual a\n\nFalse\n\nx != y  # Diferente de\n\nTrue\n\nx &lt; y   # Menor que\n\nTrue\n\nx &lt;= y  # Menor que ou igual a\n\nTrue\n\nx &gt; y   # Maior que\n\nFalse\n\nx &gt;= y  # Maior que ou igual a\n\nFalse\n\n\nOperadores Lógicos (Logical Operators)\n\n# Definindo as variáveis traduzidas\nidade = 20\ntem_carro = True\ne_fim_de_semana = False\ne_feriado = True\nesta_chovendo = False\n\n# 1. Teste com 'and' (E)\nif idade &gt;= 18 and tem_carro:\n    print(\"Viagem na estrada!\")\n\nViagem na estrada!\n\n# 2. Teste com 'or' (OU)\nif e_fim_de_semana or e_feriado:\n    print(\"Sem trabalho hoje.\")\n\nSem trabalho hoje.\n\n# 3. Teste com 'not' (NÃO)\nif not esta_chovendo:\n    print(\"Você pode sair.\")\n\nVocê pode sair."
+  },
+  {
+    "objectID": "index.html#for-loop",
+    "href": "index.html#for-loop",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "for loop",
+    "text": "for loop\n\n# Laço (loop) pelo range (intervalo)\nfor i in range(5):\n    print(i)            # 0, 1, 2, 3, 4\n\n0\n1\n2\n3\n4\n\n# Laço pela coleção\nfrutas = [\"apple\", \"banana\"]  # (maçã, banana)\nfor fruta in frutas:\n    print(fruta)\n\napple\nbanana\n\n# Com enumerate para índice\nfor i, fruta in enumerate(frutas):\n    print(f'{i}: {fruta}')\n\n0: apple\n1: banana"
+  },
+  {
+    "objectID": "index.html#while-loop",
+    "href": "index.html#while-loop",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "While loop",
+    "text": "While loop\n\nwhile True:\n    entrada_usuario = input(\"Digite 'quit' (sair) para encerrar: \")\n    if entrada_usuario == \"quit\":\n        break\n    print(f\"Você digitou: {entrada_usuario}\")"
+  },
+  {
+    "objectID": "index.html#controle-de-laço-loop-control",
+    "href": "index.html#controle-de-laço-loop-control",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Controle de Laço (Loop Control)",
+    "text": "Controle de Laço (Loop Control)\n\nfor i in range(10):\n    if i == 3:\n        continue        # Pula esta iteração\n    if i == 7:\n        break           # Sai do laço\n    print(i)\n\n0\n1\n2\n4\n5\n6"
+  },
+  {
+    "objectID": "index.html#listas-lists",
+    "href": "index.html#listas-lists",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Listas (Lists)",
+    "text": "Listas (Lists)\n\n# Criando listas\nvazia = []\nnums = [5]\nmista = [1, \"dois\", 3.0, True]\n\n# Métodos de lista\nnums.append(\"x\")         # Adiciona ao final\nnums.insert(0, \"y\")      # Insere no índice 0\nnums.extend([\"z\", 5])    # Estende com um iterável\nnums.remove(\"x\")         # Remove o primeiro \"x\"\nultimo = nums.pop()      # O pop retorna o último elemento\n\n# Indexação e verificações de lista\nfrutas = [\"banana\", \"maçã\", \"laranja\"]\nfrutas[0]                # \"banana\"\n\n'banana'\n\nfrutas[-1]               # \"laranja\"\n\n'laranja'\n\n\"maçã\" in frutas         # True (Verdadeiro)\n\nTrue\n\nlen(frutas)              # 3\n\n3"
+  },
+  {
+    "objectID": "index.html#tuplas-tuples",
+    "href": "index.html#tuplas-tuples",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Tuplas (Tuples)",
+    "text": "Tuplas (Tuples)\n\n# Criando tuplas\nponto = (3, 4)\nunica = (1,)             # Observe a vírgula!\nvazia = ()\n\n# Desempacotamento básico de tupla\nponto = (3, 4)\nx, y = ponto\nx                        # 3\n\n3\n\ny                        # 4\n\n4\n\n# Desempacotamento estendido\nprimeiro, *resto = (1, 2, 3, 4)\nprimeiro                 # 1\n\n1\n\nresto                    # [2, 3, 4]\n\n[2, 3, 4]"
+  },
+  {
+    "objectID": "index.html#conjuntos-sets",
+    "href": "index.html#conjuntos-sets",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Conjuntos (Sets)",
+    "text": "Conjuntos (Sets)\n\n# Criando Conjuntos (Sets)\na = {1, 2, 3}\nb = set([3, 4, 4, 5])\n\n# Operações de Conjunto\na | b          # {1, 2, 3, 4, 5}  (União)\n\n{1, 2, 3, 4, 5}\n\na & b          # {3}              (Interseção)\n\n{3}\n\na - b          # {1, 2}           (Diferença)\n\n{1, 2}\n\na ^ b          # {1, 2, 4, 5}     (Diferença simétrica)\n\n{1, 2, 4, 5}"
+  },
+  {
+    "objectID": "index.html#dicionários-dictionaries",
+    "href": "index.html#dicionários-dictionaries",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Dicionários (Dictionaries)",
+    "text": "Dicionários (Dictionaries)\n\n# Criando Dicionários\nvazio = {}\npet = {\"nome\": \"Léo\", \"idade\": 42}\n\n# Operações de Dicionário\npet[\"som\"] = \"Miau!\"             # Adiciona chave e valor\npet[\"idade\"] = 7                 # Atualiza o valor\nidade = pet.get(\"idade\", 0)      # Obtém com valor padrão\ndel pet[\"som\"]                   # Exclui a chave\npet.pop(\"idade\")                 # Remove e retorna\n\n7\n\n# Métodos de Dicionário\npet = {\"nome\": \"Freda\", \"som\": \"Au!\"}\npet.keys()                       # dict_keys(['nome', 'som'])\n\ndict_keys(['nome', 'som'])\n\npet.values()                     # dict_values(['Freda', 'Au!'])\n\ndict_values(['Freda', 'Au!'])\n\npet.items()                      # dict_items([('nome', 'Freda'), ('som', 'Au!')])\n\ndict_items([('nome', 'Freda'), ('som', 'Au!')])"
+  }
+]
