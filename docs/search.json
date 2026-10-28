@@ -424,7 +424,7 @@
     "href": "index.html#a-forma-idiomática-with",
     "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
     "section": "A forma idiomática: with",
-    "text": "A forma idiomática: with\n\nwith open('cidades.csv', 'w', encoding='utf-8') as f:\n    f.write('municipio,uf\\nRecife,PE\\nOlinda,PE\\n')   # escreve e fecha sozinho\n\n33\n\nwith open('cidades.csv', encoding='utf-8') as f:\n    print(f.read())    # lê o que foi gravado\n\nmunicipio,uf\nRecife,PE\nOlinda,PE\n\n\n\nModos: 'r' leitura, 'w' escrita (sobrescreve!), 'x' falha se existir, 'a' anexa. 'b' para binário.\n\n\n\n\n\n\n\nImportante\n\n\nPróxima aula (22/10): tudo isso aplicado em tabelas com pandas — Series, DataFrame, seleção, filtragem e transformação."
+    "text": "A forma idiomática: with\nJá com With ele abre o arquivo e o fecha.\n\nwith open('cidades.csv', 'w', encoding='utf-8') as f:\n    f.write('municipio,uf\\nRecife,PE\\nOlinda,PE\\n')   # escreve e fecha sozinho\n\n33\n\nwith open('cidades.csv', encoding='utf-8') as f:\n    print(f.read())    # lê o que foi gravado\n\nmunicipio,uf\nRecife,PE\nOlinda,PE\n\n\n\nModos: 'r' leitura, 'w' escrita (sobrescreve!), 'x' falha se existir, 'a' anexa. 'b' para binário."
   },
   {
     "objectID": "index.html#comentando-código-em-python",
@@ -556,8 +556,8 @@
     "objectID": "index.html#while-loop",
     "href": "index.html#while-loop",
     "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
-    "section": "While loop",
-    "text": "While loop\n\nwhile True:\n    entrada_usuario = input(\"Digite 'quit' (sair) para encerrar: \")\n    if entrada_usuario == \"quit\":\n        break\n    print(f\"Você digitou: {entrada_usuario}\")"
+    "section": "While Loop",
+    "text": "While Loop\n\nwhile True:\n    entrada_usuario = input(\"Digite 'quit' (sair) para encerrar: \")\n    if entrada_usuario == \"quit\":\n        break # break significa parar o loop nesta linha\n    print(f\"Você digitou: {entrada_usuario}\")"
   },
   {
     "objectID": "index.html#controle-de-laço-loop-control",
@@ -571,14 +571,14 @@
     "href": "index.html#listas-lists",
     "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
     "section": "Listas (Lists)",
-    "text": "Listas (Lists)\n\n# Criando listas\nvazia = []\nnums = [5]\nmista = [1, \"dois\", 3.0, True]\n\n# Métodos de lista\nnums.append(\"x\")         # Adiciona ao final\nnums.insert(0, \"y\")      # Insere no índice 0\nnums.extend([\"z\", 5])    # Estende com um iterável\nnums.remove(\"x\")         # Remove o primeiro \"x\"\nultimo = nums.pop()      # O pop retorna o último elemento\n\n# Indexação e verificações de lista\nfrutas = [\"banana\", \"maçã\", \"laranja\"]\nfrutas[0]                # \"banana\"\n\n'banana'\n\nfrutas[-1]               # \"laranja\"\n\n'laranja'\n\n\"maçã\" in frutas         # True (Verdadeiro)\n\nTrue\n\nlen(frutas)              # 3\n\n3"
+    "text": "Listas (Lists)\n\n# Criando listas\nvazia = []\nnums = [5]\nmista = [1, \"dois\", 3.0, True]\n\n# Métodos de lista\nnums.append(\"x\")         # Adiciona ao final\nnums\n\n[5, 'x']\n\nnums.insert(0, \"y\")      # Insere no índice 0\nnums\n\n['y', 5, 'x']\n\nnums.extend([\"z\", 5])    # Estende com um iterável\nnums\n\n['y', 5, 'x', 'z', 5]\n\nnums.remove(\"x\")         # Remove o primeiro \"x\"\nnums\n\n['y', 5, 'z', 5]\n\nultimo = nums.pop()      # O pop retorna o último elemento\nultimo\n\n5\n\n\n\n# Indexação e verificações de lista\nfrutas = [\"banana\", \"maçã\", \"laranja\"]\nfrutas[0]                # \"banana\"\n\n'banana'\n\nfrutas[-1]               # \"laranja\"\n\n'laranja'\n\n\"maçã\" in frutas         # True (Verdadeiro)\n\nTrue\n\nlen(frutas)              # 3\n\n3"
   },
   {
     "objectID": "index.html#tuplas-tuples",
     "href": "index.html#tuplas-tuples",
     "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
     "section": "Tuplas (Tuples)",
-    "text": "Tuplas (Tuples)\n\n# Criando tuplas\nponto = (3, 4)\nunica = (1,)             # Observe a vírgula!\nvazia = ()\n\n# Desempacotamento básico de tupla\nponto = (3, 4)\nx, y = ponto\nx                        # 3\n\n3\n\ny                        # 4\n\n4\n\n# Desempacotamento estendido\nprimeiro, *resto = (1, 2, 3, 4)\nprimeiro                 # 1\n\n1\n\nresto                    # [2, 3, 4]\n\n[2, 3, 4]"
+    "text": "Tuplas (Tuples)\nTuplas são listas imutáveis\n\n# Criando tuplas\nponto = (3, 4)\nunica = (1,)             # Observe a vírgula!\nvazia = ()\n\n# Desempacotamento básico de tupla\nponto = (3, 4)\nx, y = ponto\nx                        # 3\n\n3\n\ny                        # 4\n\n4\n\n# Desempacotamento estendido\nprimeiro, *resto = (1, 2, 3, 4)\nprimeiro                 # 1\n\n1\n\nresto                    # [2, 3, 4]\n\n[2, 3, 4]"
   },
   {
     "objectID": "index.html#conjuntos-sets",
@@ -663,5 +663,75 @@
     "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
     "section": "dir() — lista atributos e métodos",
     "text": "dir() — lista atributos e métodos\n\n# Sem argumento: nomes no escopo atual\ndir()\n\n['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'add', 'age', 'altura', 'b', 'c', 'category', 'contador', 'defeitos', 'e_feriado', 'e_fim_de_semana', 'eh_gato', 'esta_chovendo', 'estatisticas', 'fruta', 'frutas', 'get_min_max', 'greet', 'greet_person', 'i', 'idade', 'line', 'maximo', 'minha_str_1', 'minha_str_2', 'minimo', 'nome', 'nome_e_idade', 'r', 'results', 's', 'seq', 'tem_carro', 'template', 'x', 'y']\n\n# Com argumento: atributos/métodos do objeto\ndir(\"abc\")        # métodos de str: upper, lower, split, ...\n\n['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']\n\ndir([1, 2, 3])    # métodos de list: append, pop, sort, ...\n\n['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']"
+  },
+  {
+    "objectID": "index.html#comparando-lista-e-tuplas",
+    "href": "index.html#comparando-lista-e-tuplas",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comparando lista e tuplas",
+    "text": "Comparando lista e tuplas\n“Se você não precisa mudar, use tupla.” — é mais seguro, mais rápido e comunica melhor a intenção.\nLista: “coleção de itens iguais que pode crescer/encolher” → [1, 2, 3, 4]\nTupla: “registro com campos fixos” → (“João”, 30, “SP”)\n\n# Bom uso\nDIAS_SEMANA = (\"seg\", \"ter\", \"qua\", \"qui\", \"sex\", \"sáb\", \"dom\")\nCOR_VERMELHO = (255, 0, 0)\nponto = (10.5, 20.3)\n\n# Bom uso de lista\ncarrinho = [\"maçã\", \"pão\"]\ncarrinho.append(\"leite\")  # vai mudar"
+  },
+  {
+    "objectID": "index.html#estrutura-de-dados-listas-lists",
+    "href": "index.html#estrutura-de-dados-listas-lists",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Estrutura de dados: listas (Lists)",
+    "text": "Estrutura de dados: listas (Lists)\n\n# Criando listas\nvazia = []\nnums = [5]\nmista = [1, \"dois\", 3.0, True]\n\n# Métodos de lista\nnums.append(\"x\")         # Adiciona ao final\nnums\n\n[5, 'x']\n\nnums.insert(0, \"y\")      # Insere no índice 0\nnums\n\n['y', 5, 'x']\n\nnums.extend([\"z\", 5])    # Estende com um iterável\nnums\n\n['y', 5, 'x', 'z', 5]\n\nnums.remove(\"x\")         # Remove o primeiro \"x\"\nnums\n\n['y', 5, 'z', 5]\n\nultimo = nums.pop()      # O pop retorna o último elemento\nultimo\n\n5\n\n\n\n# Indexação e verificações de lista\nfrutas = [\"banana\", \"maçã\", \"laranja\"]\nfrutas[0]                # \"banana\"\n\n'banana'\n\nfrutas[-1]               # \"laranja\"\n\n'laranja'\n\n\"maçã\" in frutas         # True (Verdadeiro)\n\nTrue\n\nlen(frutas)              # 3\n\n3"
+  },
+  {
+    "objectID": "index.html#estrutura-de-dados-tuplas-tuples",
+    "href": "index.html#estrutura-de-dados-tuplas-tuples",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Estrutura de dados: Tuplas (Tuples)",
+    "text": "Estrutura de dados: Tuplas (Tuples)\nTuplas são listas imutáveis\n\n# Criando tuplas\nponto = (3, 4)\nunica = (1,)             # Observe a vírgula!\nvazia = ()\n\n# Desempacotamento básico de tupla\nponto = (3, 4)\nx, y = ponto\nx                        # 3\n\n3\n\ny                        # 4\n\n4\n\n# Desempacotamento estendido\nprimeiro, *resto = (1, 2, 3, 4)\nprimeiro                 # 1\n\n1\n\nresto                    # [2, 3, 4]\n\n[2, 3, 4]"
+  },
+  {
+    "objectID": "index.html#comparando-lista-e-tuplas-1",
+    "href": "index.html#comparando-lista-e-tuplas-1",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Comparando lista e tuplas",
+    "text": "Comparando lista e tuplas\nTuplas são criadas mais rápido e ocupam menos memória:\n\nimport sys\nsys.getsizeof([1, 2, 3])   # 88 bytes\n\n88\n\nsys.getsizeof((1, 2, 3))   # 64 bytes\n\n64"
+  },
+  {
+    "objectID": "index.html#estrutura-de-dados-conjuntos-sets",
+    "href": "index.html#estrutura-de-dados-conjuntos-sets",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Estrutura de dados: Conjuntos (Sets)",
+    "text": "Estrutura de dados: Conjuntos (Sets)\n\n# Criando Conjuntos (Sets)\na = {1, 2, 3}\n# convertendo uma lista para set\nb = set([3, 4, 4, 5])\n\nOperações de Conjunto:\n\na | b          # {1, 2, 3, 4, 5}  (União)\n\n{1, 2, 3, 4, 5}\n\na & b          # {3}              (Interseção)\n\n{3}\n\na - b          # {1, 2}           (Diferença)\n\n{1, 2}\n\nb - a          # {4,5}           (Diferença)\n\n{4, 5}\n\na ^ b          # {1, 2, 4, 5}     (Diferença simétrica)\n\n{1, 2, 4, 5}"
+  },
+  {
+    "objectID": "index.html#explicando-os-sets",
+    "href": "index.html#explicando-os-sets",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Explicando os sets",
+    "text": "Explicando os sets\nUm set (conjunto) é uma coleção não ordenada e sem elementos duplicados\n\ns = {1, 2, 3, 2, 1}\nprint(s)  # {1, 2, 3}  ← duplicatas removidas automaticamente\n\n{1, 2, 3}"
+  },
+  {
+    "objectID": "index.html#estrutura-de-dados-dicionários-dictionaries",
+    "href": "index.html#estrutura-de-dados-dicionários-dictionaries",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Estrutura de dados: Dicionários (Dictionaries)",
+    "text": "Estrutura de dados: Dicionários (Dictionaries)\n\n# Criando Dicionários\nvazio = {}\npet = {\"nome\": \"felix\", \"idade\": 5}\n\n# Operações de Dicionário\npet[\"som\"] = \"Miau!\"             # Adiciona chave e valor\npet[\"idade\"] = 7                 # Atualiza o valor\nidade = pet.get(\"idade\", 0)      # Obtém com valor padrão\ndel pet[\"som\"]                   # Exclui a chave\npet.pop(\"idade\")                 # Remove e retorna\n\n7\n\n\n\n# Métodos de Dicionário\npet = {\"nome\": \"Freda\", \"som\": \"Au!\"}\npet.keys()                       # dict_keys(['nome', 'som'])\n\ndict_keys(['nome', 'som'])\n\npet.values()                     # dict_values(['Freda', 'Au!'])\n\ndict_values(['Freda', 'Au!'])\n\npet.items()                      # dict_items([('nome', 'Freda'), ('som', 'Au!')])\n\ndict_items([('nome', 'Freda'), ('som', 'Au!')])"
+  },
+  {
+    "objectID": "index.html#mix-de-estruturas-lista-de-dicionários",
+    "href": "index.html#mix-de-estruturas-lista-de-dicionários",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Mix de estruturas: lista de dicionários",
+    "text": "Mix de estruturas: lista de dicionários\n\npessoas = [\n    {\"nome\": \"felix\", \"idade\": 5},\n    {\"nome\": \"mimi\",  \"idade\": 3},   # segundo indivíduo\n]\n\n# Acessar o segundo\nprint(pessoas[1][\"nome\"])  # mimi\n\nmimi\n\n\n# Adicionar um terceiro\npessoas.append({\"nome\": \"rex\", \"idade\": 7})"
+  },
+  {
+    "objectID": "index.html#mix-de-estruturas-dicionário-de-dicionários-indexado-por-chave",
+    "href": "index.html#mix-de-estruturas-dicionário-de-dicionários-indexado-por-chave",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "Mix de estruturas: dicionário de dicionários (indexado por chave)",
+    "text": "Mix de estruturas: dicionário de dicionários (indexado por chave)\n\npessoas = {\n    \"felix\": {\"nome\": \"felix\", \"idade\": 5},\n    \"mimi\":  {\"nome\": \"mimi\",  \"idade\": 3},\n}\n\n# Acessar pelo nome\nprint(pessoas[\"mimi\"][\"idade\"])  # 3\n\n3\n\n\n# Adicionar outro\npessoas[\"rex\"] = {\"nome\": \"rex\", \"idade\": 7}"
+  },
+  {
+    "objectID": "index.html#modo-tradicional-1",
+    "href": "index.html#modo-tradicional-1",
+    "title": "Introdução à Análise de Dados com Python — Aula 02: Conceitos básicos do Python para análise de dados",
+    "section": "modo tradicional 1",
+    "text": "modo tradicional 1\n#| label: arq-open-close\npath = 'examples/segismundo.txt'\nf = open(path)                 # modo de leitura (default)\nlines = [x.rstrip() for x in open(path)]\nf.close()                      # importante fechar!\n\n“Quando se usa open para criar objetos de arquivo, é importante fechar explicitamente o arquivo ao acabar de utilizá-lo.” (McKinney, 2017, p. 130)"
   }
 ]

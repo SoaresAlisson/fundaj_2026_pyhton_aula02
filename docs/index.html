@@ -911,12 +911,12 @@ banana</code></pre>
 </div>
 </section>
 <section id="while-loop" class="slide level2">
-<h2>While loop</h2>
+<h2>While Loop</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a aria-label="1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb139-2"><a aria-label="2"></a>    entrada_usuario <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Digite 'quit' (sair) para encerrar: "</span>)</span>
 <span id="cb139-3"><a aria-label="3"></a>    <span class="cf">if</span> entrada_usuario <span class="op">==</span> <span class="st">"quit"</span>:</span>
-<span id="cb139-4"><a aria-label="4"></a>        <span class="cf">break</span></span>
+<span id="cb139-4"><a aria-label="4"></a>        <span class="cf">break</span> <span class="co"># break significa parar o loop nesta linha</span></span>
 <span id="cb139-5"><a aria-label="5"></a>    <span class="bu">print</span>(<span class="ss">f"Você digitou: </span><span class="sc">{</span>entrada_usuario<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -1093,19 +1093,19 @@ banana</code></pre>
 </div>
 </section></section>
 <section>
-<section id="coleções" class="title-slide slide level1 center">
-<h1>Coleções</h1>
+<section id="coleções-ou-estrutura-de-dados" class="title-slide slide level1 center">
+<h1>Coleções ou Estrutura de dados</h1>
 <ul>
-<li class="fragment">Estrutura de dados que funciona como contêiner e armazena múltiplos itens</li>
-<li class="fragment">Se um objeto é uma coleção, você pode iterar (percorrer) por ele</li>
-<li class="fragment">Strings também são coleções</li>
-<li class="fragment">Use len() para obter o tamanho de uma coleção</li>
-<li class="fragment">Você pode verificar se um item está em uma coleção com a palavra-chave in</li>
+<li class="fragment">Estrutura de dados armazena múltiplos itens: strings, booleanos, integers e floats</li>
+<li class="fragment">Temos listas, tuplas, sets e dicionários. Ainda não estamos trabalhando com tabelas!</li>
 <li class="fragment">Algumas coleções podem parecer semelhantes, mas cada estrutura de dados resolve necessidades específicas</li>
+<li class="fragment">Se um objeto é uma coleção, você pode iterar (percorrer) por ele</li>
+<li class="fragment">Você pode verificar se um item está em uma coleção com a palavra-chave in</li>
+<li class="fragment">Use len() para obter o tamanho de uma coleção</li>
 </ul>
 </section>
-<section id="listas-lists" class="slide level2">
-<h2>Listas (Lists)</h2>
+<section id="estrutura-de-dados-listas-lists" class="slide level2">
+<h2>Estrutura de dados: listas (Lists)</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb166-1"><a aria-label="1"></a><span class="co"># Criando listas</span></span>
 <span id="cb166-2"><a aria-label="2"></a>vazia <span class="op">=</span> []</span>
@@ -1114,26 +1114,47 @@ banana</code></pre>
 <span id="cb166-5"><a aria-label="5"></a></span>
 <span id="cb166-6"><a aria-label="6"></a><span class="co"># Métodos de lista</span></span>
 <span id="cb166-7"><a aria-label="7"></a>nums.append(<span class="st">"x"</span>)         <span class="co"># Adiciona ao final</span></span>
-<span id="cb166-8"><a aria-label="8"></a>nums.insert(<span class="dv">0</span>, <span class="st">"y"</span>)      <span class="co"># Insere no índice 0</span></span>
-<span id="cb166-9"><a aria-label="9"></a>nums.extend([<span class="st">"z"</span>, <span class="dv">5</span>])    <span class="co"># Estende com um iterável</span></span>
-<span id="cb166-10"><a aria-label="10"></a>nums.remove(<span class="st">"x"</span>)         <span class="co"># Remove o primeiro "x"</span></span>
-<span id="cb166-11"><a aria-label="11"></a>ultimo <span class="op">=</span> nums.pop()      <span class="co"># O pop retorna o último elemento</span></span>
-<span id="cb166-12"><a aria-label="12"></a></span>
-<span id="cb166-13"><a aria-label="13"></a><span class="co"># Indexação e verificações de lista</span></span>
-<span id="cb166-14"><a aria-label="14"></a>frutas <span class="op">=</span> [<span class="st">"banana"</span>, <span class="st">"maçã"</span>, <span class="st">"laranja"</span>]</span>
-<span id="cb166-15"><a aria-label="15"></a>frutas[<span class="dv">0</span>]                <span class="co"># "banana"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb166-8"><a aria-label="8"></a>nums</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[5, 'x']</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb168-1"><a aria-label="1"></a>nums.insert(<span class="dv">0</span>, <span class="st">"y"</span>)      <span class="co"># Insere no índice 0</span></span>
+<span id="cb168-2"><a aria-label="2"></a>nums</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['y', 5, 'x']</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a aria-label="1"></a>nums.extend([<span class="st">"z"</span>, <span class="dv">5</span>])    <span class="co"># Estende com um iterável</span></span>
+<span id="cb170-2"><a aria-label="2"></a>nums</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['y', 5, 'x', 'z', 5]</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb172-1"><a aria-label="1"></a>nums.remove(<span class="st">"x"</span>)         <span class="co"># Remove o primeiro "x"</span></span>
+<span id="cb172-2"><a aria-label="2"></a>nums</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['y', 5, 'z', 5]</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb174-1"><a aria-label="1"></a>ultimo <span class="op">=</span> nums.pop()      <span class="co"># O pop retorna o último elemento</span></span>
+<span id="cb174-2"><a aria-label="2"></a>ultimo</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb176-1"><a aria-label="1"></a><span class="co"># Indexação e verificações de lista</span></span>
+<span id="cb176-2"><a aria-label="2"></a>frutas <span class="op">=</span> [<span class="st">"banana"</span>, <span class="st">"maçã"</span>, <span class="st">"laranja"</span>]</span>
+<span id="cb176-3"><a aria-label="3"></a>frutas[<span class="dv">0</span>]                <span class="co"># "banana"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'banana'</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb168-1"><a aria-label="1"></a>frutas[<span class="op">-</span><span class="dv">1</span>]               <span class="co"># "laranja"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a aria-label="1"></a>frutas[<span class="op">-</span><span class="dv">1</span>]               <span class="co"># "laranja"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'laranja'</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a aria-label="1"></a><span class="co">"maçã"</span> <span class="kw">in</span> frutas         <span class="co"># True (Verdadeiro)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb180-1"><a aria-label="1"></a><span class="co">"maçã"</span> <span class="kw">in</span> frutas         <span class="co"># True (Verdadeiro)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb172-1"><a aria-label="1"></a><span class="bu">len</span>(frutas)              <span class="co"># 3</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb182-1"><a aria-label="1"></a><span class="bu">len</span>(frutas)              <span class="co"># 3</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
@@ -1142,121 +1163,230 @@ banana</code></pre>
 
 
 
-<section id="tuplas-tuples" class="slide level2">
-<h2>Tuplas (Tuples)</h2>
+<section id="estrutura-de-dados-tuplas-tuples" class="slide level2">
+<h2>Estrutura de dados: Tuplas (Tuples)</h2>
+<p>Tuplas são listas imutáveis</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb188-1"><a aria-label="1"></a><span class="co"># Criando tuplas</span></span>
-<span id="cb188-2"><a aria-label="2"></a>ponto <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb188-3"><a aria-label="3"></a>unica <span class="op">=</span> (<span class="dv">1</span>,)             <span class="co"># Observe a vírgula!</span></span>
-<span id="cb188-4"><a aria-label="4"></a>vazia <span class="op">=</span> ()</span>
-<span id="cb188-5"><a aria-label="5"></a></span>
-<span id="cb188-6"><a aria-label="6"></a><span class="co"># Desempacotamento básico de tupla</span></span>
-<span id="cb188-7"><a aria-label="7"></a>ponto <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb188-8"><a aria-label="8"></a>x, y <span class="op">=</span> ponto</span>
-<span id="cb188-9"><a aria-label="9"></a>x                        <span class="co"># 3</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb198-1"><a aria-label="1"></a><span class="co"># Criando tuplas</span></span>
+<span id="cb198-2"><a aria-label="2"></a>ponto <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb198-3"><a aria-label="3"></a>unica <span class="op">=</span> (<span class="dv">1</span>,)             <span class="co"># Observe a vírgula!</span></span>
+<span id="cb198-4"><a aria-label="4"></a>vazia <span class="op">=</span> ()</span>
+<span id="cb198-5"><a aria-label="5"></a></span>
+<span id="cb198-6"><a aria-label="6"></a><span class="co"># Desempacotamento básico de tupla</span></span>
+<span id="cb198-7"><a aria-label="7"></a>ponto <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb198-8"><a aria-label="8"></a>x, y <span class="op">=</span> ponto</span>
+<span id="cb198-9"><a aria-label="9"></a>x                        <span class="co"># 3</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb190-1"><a aria-label="1"></a>y                        <span class="co"># 4</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb200-1"><a aria-label="1"></a>y                        <span class="co"># 4</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb192-1"><a aria-label="1"></a><span class="co"># Desempacotamento estendido</span></span>
-<span id="cb192-2"><a aria-label="2"></a>primeiro, <span class="op">*</span>resto <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb192-3"><a aria-label="3"></a>primeiro                 <span class="co"># 1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb202-1"><a aria-label="1"></a><span class="co"># Desempacotamento estendido</span></span>
+<span id="cb202-2"><a aria-label="2"></a>primeiro, <span class="op">*</span>resto <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb202-3"><a aria-label="3"></a>primeiro                 <span class="co"># 1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb194-1"><a aria-label="1"></a>resto                    <span class="co"># [2, 3, 4]</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb204"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb204-1"><a aria-label="1"></a>resto                    <span class="co"># [2, 3, 4]</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 3, 4]</code></pre>
 </div>
 </div>
 </section>
-<section id="conjuntos-sets" class="slide level2">
-<h2>Conjuntos (Sets)</h2>
+<section class="slide level2">
+
+<p>Tuplas são imutáveis. Para mudá-las, converte-se tupla para lista, muda-se a lista, e converte-se de novo para tupla.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb196-1"><a aria-label="1"></a><span class="co"># Criando Conjuntos (Sets)</span></span>
-<span id="cb196-2"><a aria-label="2"></a>a <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
-<span id="cb196-3"><a aria-label="3"></a>b <span class="op">=</span> <span class="bu">set</span>([<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb196-4"><a aria-label="4"></a></span>
-<span id="cb196-5"><a aria-label="5"></a><span class="co"># Operações de Conjunto</span></span>
-<span id="cb196-6"><a aria-label="6"></a>a <span class="op">|</span> b          <span class="co"># {1, 2, 3, 4, 5}  (União)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb206"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb206-1"><a aria-label="1"></a>y <span class="op">=</span> <span class="bu">list</span>(tupla)</span>
+<span id="cb206-2"><a aria-label="2"></a>y[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"tomate"</span></span>
+<span id="cb206-3"><a aria-label="3"></a>x <span class="op">=</span> <span class="bu">tuple</span>(y)</span>
+<span id="cb206-4"><a aria-label="4"></a></span>
+<span id="cb206-5"><a aria-label="5"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="comparando-lista-e-tuplas" class="slide level2">
+<h2>Comparando lista e tuplas</h2>
+<p>“Se você não precisa mudar, use tupla.” — é mais seguro, mais rápido e comunica melhor a intenção.</p>
+<p><strong>Lista</strong>: “coleção de itens iguais que pode crescer/encolher” → [1, 2, 3, 4]</p>
+<p><strong>Tupla</strong>: “registro com campos fixos” → (“João”, 30, “SP”)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb207-1"><a aria-label="1"></a><span class="co"># Bom uso</span></span>
+<span id="cb207-2"><a aria-label="2"></a>DIAS_SEMANA <span class="op">=</span> (<span class="st">"seg"</span>, <span class="st">"ter"</span>, <span class="st">"qua"</span>, <span class="st">"qui"</span>, <span class="st">"sex"</span>, <span class="st">"sáb"</span>, <span class="st">"dom"</span>)</span>
+<span id="cb207-3"><a aria-label="3"></a>COR_VERMELHO <span class="op">=</span> (<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb207-4"><a aria-label="4"></a>ponto <span class="op">=</span> (<span class="fl">10.5</span>, <span class="fl">20.3</span>)</span>
+<span id="cb207-5"><a aria-label="5"></a></span>
+<span id="cb207-6"><a aria-label="6"></a><span class="co"># Bom uso de lista</span></span>
+<span id="cb207-7"><a aria-label="7"></a>carrinho <span class="op">=</span> [<span class="st">"maçã"</span>, <span class="st">"pão"</span>]</span>
+<span id="cb207-8"><a aria-label="8"></a>carrinho.append(<span class="st">"leite"</span>)  <span class="co"># vai mudar</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="comparando-lista-e-tuplas-1" class="slide level2">
+<h2>Comparando lista e tuplas</h2>
+<p>Tuplas são criadas mais rápido e ocupam menos memória:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb208-1"><a aria-label="1"></a><span class="im">import</span> sys</span>
+<span id="cb208-2"><a aria-label="2"></a>sys.getsizeof([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])   <span class="co"># 88 bytes</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>88</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb210-1"><a aria-label="1"></a>sys.getsizeof((<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))   <span class="co"># 64 bytes</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>64</code></pre>
+</div>
+</div>
+</section>
+<section id="estrutura-de-dados-conjuntos-sets" class="slide level2">
+<h2>Estrutura de dados: Conjuntos (Sets)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb212-1"><a aria-label="1"></a><span class="co"># Criando Conjuntos (Sets)</span></span>
+<span id="cb212-2"><a aria-label="2"></a>a <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb212-3"><a aria-label="3"></a><span class="co"># convertendo uma lista para set</span></span>
+<span id="cb212-4"><a aria-label="4"></a>b <span class="op">=</span> <span class="bu">set</span>([<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Operações de Conjunto:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb213-1"><a aria-label="1"></a>a <span class="op">|</span> b          <span class="co"># {1, 2, 3, 4, 5}  (União)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{1, 2, 3, 4, 5}</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb198-1"><a aria-label="1"></a>a <span class="op">&amp;</span> b          <span class="co"># {3}              (Interseção)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb215-1"><a aria-label="1"></a>a <span class="op">&amp;</span> b          <span class="co"># {3}              (Interseção)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{3}</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb200-1"><a aria-label="1"></a>a <span class="op">-</span> b          <span class="co"># {1, 2}           (Diferença)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb217-1"><a aria-label="1"></a>a <span class="op">-</span> b          <span class="co"># {1, 2}           (Diferença)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{1, 2}</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb202-1"><a aria-label="1"></a>a <span class="op">^</span> b          <span class="co"># {1, 2, 4, 5}     (Diferença simétrica)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb219-1"><a aria-label="1"></a>b <span class="op">-</span> a          <span class="co"># {4,5}           (Diferença)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{4, 5}</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb221-1"><a aria-label="1"></a>a <span class="op">^</span> b          <span class="co"># {1, 2, 4, 5}     (Diferença simétrica)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{1, 2, 4, 5}</code></pre>
 </div>
 </div>
 </section>
-<section id="dicionários-dictionaries" class="slide level2">
-<h2>Dicionários (Dictionaries)</h2>
+<section id="explicando-os-sets" class="slide level2">
+<h2>Explicando os sets</h2>
+<p>Um set (conjunto) é uma coleção não ordenada e sem elementos duplicados</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb204"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb204-1"><a aria-label="1"></a><span class="co"># Criando Dicionários</span></span>
-<span id="cb204-2"><a aria-label="2"></a>vazio <span class="op">=</span> {}</span>
-<span id="cb204-3"><a aria-label="3"></a>pet <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"Léo"</span>, <span class="st">"idade"</span>: <span class="dv">42</span>}</span>
-<span id="cb204-4"><a aria-label="4"></a></span>
-<span id="cb204-5"><a aria-label="5"></a><span class="co"># Operações de Dicionário</span></span>
-<span id="cb204-6"><a aria-label="6"></a>pet[<span class="st">"som"</span>] <span class="op">=</span> <span class="st">"Miau!"</span>             <span class="co"># Adiciona chave e valor</span></span>
-<span id="cb204-7"><a aria-label="7"></a>pet[<span class="st">"idade"</span>] <span class="op">=</span> <span class="dv">7</span>                 <span class="co"># Atualiza o valor</span></span>
-<span id="cb204-8"><a aria-label="8"></a>idade <span class="op">=</span> pet.get(<span class="st">"idade"</span>, <span class="dv">0</span>)      <span class="co"># Obtém com valor padrão</span></span>
-<span id="cb204-9"><a aria-label="9"></a><span class="kw">del</span> pet[<span class="st">"som"</span>]                   <span class="co"># Exclui a chave</span></span>
-<span id="cb204-10"><a aria-label="10"></a>pet.pop(<span class="st">"idade"</span>)                 <span class="co"># Remove e retorna</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb223-1"><a aria-label="1"></a>s <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>}</span>
+<span id="cb223-2"><a aria-label="2"></a><span class="bu">print</span>(s)  <span class="co"># {1, 2, 3}  ← duplicatas removidas automaticamente</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{1, 2, 3}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment"><strong>list</strong> = “tenho uma sequência de itens, a ordem importa, podendo ter repetição” → [“maçã”, “pão”, “maçã”]</li>
+<li class="fragment"><strong>tuple</strong> = “tenho um registro fixo de valores que não muda” → (10.5, 20.3) (coordenada)</li>
+<li class="fragment"><strong>set</strong> = “tenho um conjunto de itens únicos, a ordem não importa, quero testar pertencimento e comparar grupos” → {“SP”, “RJ”, “MG”}</li>
+<li class="fragment">O set não é uma estrutura “de tabela” — é uma ferramenta para comparar conjuntos de valores.</li>
+<li class="fragment">Em análise de dados, você usa set para responder perguntas do tipo ‘quem está em A mas não em B?’ — comparações entre grupos.”</li>
+</ul>
+</section>
+<section id="estrutura-de-dados-dicionários-dictionaries" class="slide level2">
+<h2>Estrutura de dados: Dicionários (Dictionaries)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb225-1"><a aria-label="1"></a><span class="co"># Criando Dicionários</span></span>
+<span id="cb225-2"><a aria-label="2"></a>vazio <span class="op">=</span> {}</span>
+<span id="cb225-3"><a aria-label="3"></a>pet <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"felix"</span>, <span class="st">"idade"</span>: <span class="dv">5</span>}</span>
+<span id="cb225-4"><a aria-label="4"></a></span>
+<span id="cb225-5"><a aria-label="5"></a><span class="co"># Operações de Dicionário</span></span>
+<span id="cb225-6"><a aria-label="6"></a>pet[<span class="st">"som"</span>] <span class="op">=</span> <span class="st">"Miau!"</span>             <span class="co"># Adiciona chave e valor</span></span>
+<span id="cb225-7"><a aria-label="7"></a>pet[<span class="st">"idade"</span>] <span class="op">=</span> <span class="dv">7</span>                 <span class="co"># Atualiza o valor</span></span>
+<span id="cb225-8"><a aria-label="8"></a>idade <span class="op">=</span> pet.get(<span class="st">"idade"</span>, <span class="dv">0</span>)      <span class="co"># Obtém com valor padrão</span></span>
+<span id="cb225-9"><a aria-label="9"></a><span class="kw">del</span> pet[<span class="st">"som"</span>]                   <span class="co"># Exclui a chave</span></span>
+<span id="cb225-10"><a aria-label="10"></a>pet.pop(<span class="st">"idade"</span>)                 <span class="co"># Remove e retorna</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb206"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb206-1"><a aria-label="1"></a><span class="co"># Métodos de Dicionário</span></span>
-<span id="cb206-2"><a aria-label="2"></a>pet <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"Freda"</span>, <span class="st">"som"</span>: <span class="st">"Au!"</span>}</span>
-<span id="cb206-3"><a aria-label="3"></a>pet.keys()                       <span class="co"># dict_keys(['nome', 'som'])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb227"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb227-1"><a aria-label="1"></a><span class="co"># Métodos de Dicionário</span></span>
+<span id="cb227-2"><a aria-label="2"></a>pet <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"Freda"</span>, <span class="st">"som"</span>: <span class="st">"Au!"</span>}</span>
+<span id="cb227-3"><a aria-label="3"></a>pet.keys()                       <span class="co"># dict_keys(['nome', 'som'])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>dict_keys(['nome', 'som'])</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb208-1"><a aria-label="1"></a>pet.values()                     <span class="co"># dict_values(['Freda', 'Au!'])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb229"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb229-1"><a aria-label="1"></a>pet.values()                     <span class="co"># dict_values(['Freda', 'Au!'])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>dict_values(['Freda', 'Au!'])</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb210-1"><a aria-label="1"></a>pet.items()                      <span class="co"># dict_items([('nome', 'Freda'), ('som', 'Au!')])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb231"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb231-1"><a aria-label="1"></a>pet.items()                      <span class="co"># dict_items([('nome', 'Freda'), ('som', 'Au!')])</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>dict_items([('nome', 'Freda'), ('som', 'Au!')])</code></pre>
 </div>
+</div>
+</section>
+<section id="mix-de-estruturas-lista-de-dicionários" class="slide level2">
+<h2>Mix de estruturas: lista de dicionários</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb233-1"><a aria-label="1"></a>pessoas <span class="op">=</span> [</span>
+<span id="cb233-2"><a aria-label="2"></a>    {<span class="st">"nome"</span>: <span class="st">"felix"</span>, <span class="st">"idade"</span>: <span class="dv">5</span>},</span>
+<span id="cb233-3"><a aria-label="3"></a>    {<span class="st">"nome"</span>: <span class="st">"mimi"</span>,  <span class="st">"idade"</span>: <span class="dv">3</span>},   <span class="co"># segundo indivíduo</span></span>
+<span id="cb233-4"><a aria-label="4"></a>]</span>
+<span id="cb233-5"><a aria-label="5"></a></span>
+<span id="cb233-6"><a aria-label="6"></a><span class="co"># Acessar o segundo</span></span>
+<span id="cb233-7"><a aria-label="7"></a><span class="bu">print</span>(pessoas[<span class="dv">1</span>][<span class="st">"nome"</span>])  <span class="co"># mimi</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>mimi</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb235-1"><a aria-label="1"></a></span>
+<span id="cb235-2"><a aria-label="2"></a><span class="co"># Adicionar um terceiro</span></span>
+<span id="cb235-3"><a aria-label="3"></a>pessoas.append({<span class="st">"nome"</span>: <span class="st">"rex"</span>, <span class="st">"idade"</span>: <span class="dv">7</span>})</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="mix-de-estruturas-dicionário-de-dicionários-indexado-por-chave" class="slide level2">
+<h2>Mix de estruturas: dicionário de dicionários (indexado por chave)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb236"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb236-1"><a aria-label="1"></a>pessoas <span class="op">=</span> {</span>
+<span id="cb236-2"><a aria-label="2"></a>    <span class="st">"felix"</span>: {<span class="st">"nome"</span>: <span class="st">"felix"</span>, <span class="st">"idade"</span>: <span class="dv">5</span>},</span>
+<span id="cb236-3"><a aria-label="3"></a>    <span class="st">"mimi"</span>:  {<span class="st">"nome"</span>: <span class="st">"mimi"</span>,  <span class="st">"idade"</span>: <span class="dv">3</span>},</span>
+<span id="cb236-4"><a aria-label="4"></a>}</span>
+<span id="cb236-5"><a aria-label="5"></a></span>
+<span id="cb236-6"><a aria-label="6"></a><span class="co"># Acessar pelo nome</span></span>
+<span id="cb236-7"><a aria-label="7"></a><span class="bu">print</span>(pessoas[<span class="st">"mimi"</span>][<span class="st">"idade"</span>])  <span class="co"># 3</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb238"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb238-1"><a aria-label="1"></a></span>
+<span id="cb238-2"><a aria-label="2"></a><span class="co"># Adicionar outro</span></span>
+<span id="cb238-3"><a aria-label="3"></a>pessoas[<span class="st">"rex"</span>] <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"rex"</span>, <span class="st">"idade"</span>: <span class="dv">7</span>}</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
 <section id="parte-6-arquivos" class="title-slide slide level1 center">
 <h1>Parte 6 — Arquivos</h1>
-
+<p>Importando dados de arquivos externos, os modos tradicionais.</p>
 </section>
-<section id="with-open" class="slide level2">
-<h2>with open</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb212"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb212-1"><a aria-label="1"></a><span class="co">#| label: arq-open-close</span></span>
-<span id="cb212-2"><a aria-label="2"></a>path <span class="op">=</span> <span class="st">'examples/segismundo.txt'</span></span>
-<span id="cb212-3"><a aria-label="3"></a>f <span class="op">=</span> <span class="bu">open</span>(path)                 <span class="co"># modo de leitura (default)</span></span>
-<span id="cb212-4"><a aria-label="4"></a>lines <span class="op">=</span> [x.rstrip() <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">open</span>(path)]</span>
-<span id="cb212-5"><a aria-label="5"></a>f.close()                      <span class="co"># importante fechar!</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="modo-tradicional-1" class="slide level2">
+<h2>modo tradicional 1</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb239"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb239-1"><a aria-label="1"></a><span class="co">#| label: arq-open-close</span></span>
+<span id="cb239-2"><a aria-label="2"></a>path <span class="op">=</span> <span class="st">'examples/segismundo.txt'</span></span>
+<span id="cb239-3"><a aria-label="3"></a>f <span class="op">=</span> <span class="bu">open</span>(path)                 <span class="co"># modo de leitura (default)</span></span>
+<span id="cb239-4"><a aria-label="4"></a>lines <span class="op">=</span> [x.rstrip() <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">open</span>(path)]</span>
+<span id="cb239-5"><a aria-label="5"></a>f.close()                      <span class="co"># importante fechar!</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote>
 <p>“Quando se usa open para criar objetos de arquivo, é importante fechar explicitamente o arquivo ao acabar de utilizá-lo.” (McKinney, 2017, p.&nbsp;130)</p>
 </blockquote>
 </section>
 <section id="a-forma-idiomática-with" class="slide level2">
 <h2>A forma idiomática: with</h2>
+<p>Já com With ele abre o arquivo e o fecha.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb213-1"><a aria-label="1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'cidades.csv'</span>, <span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
-<span id="cb213-2"><a aria-label="2"></a>    f.write(<span class="st">'municipio,uf</span><span class="ch">\n</span><span class="st">Recife,PE</span><span class="ch">\n</span><span class="st">Olinda,PE</span><span class="ch">\n</span><span class="st">'</span>)   <span class="co"># escreve e fecha sozinho</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb240"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb240-1"><a aria-label="1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'cidades.csv'</span>, <span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb240-2"><a aria-label="2"></a>    f.write(<span class="st">'municipio,uf</span><span class="ch">\n</span><span class="st">Recife,PE</span><span class="ch">\n</span><span class="st">Olinda,PE</span><span class="ch">\n</span><span class="st">'</span>)   <span class="co"># escreve e fecha sozinho</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>33</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb215-1"><a aria-label="1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'cidades.csv'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
-<span id="cb215-2"><a aria-label="2"></a>    <span class="bu">print</span>(f.read())    <span class="co"># lê o que foi gravado</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb242-1"><a aria-label="1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'cidades.csv'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb242-2"><a aria-label="2"></a>    <span class="bu">print</span>(f.read())    <span class="co"># lê o que foi gravado</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>municipio,uf
 Recife,PE
@@ -1266,26 +1396,16 @@ Olinda,PE</code></pre>
 <ul>
 <li class="fragment">Modos: <code>'r'</code> leitura, <code>'w'</code> escrita (sobrescreve!), <code>'x'</code> falha se existir, <code>'a'</code> anexa. <code>'b'</code> para binário.</li>
 </ul>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Importante</strong></p>
-</div>
-<div class="callout-content">
-<p>Próxima aula (22/10): tudo isso aplicado em tabelas com <strong>pandas</strong> — Series, DataFrame, seleção, filtragem e transformação.</p>
-</div>
-</div>
-</div>
+</section>
+<section class="slide level2">
+
+<p>Veremos que no Pandas a importação e exportação de tabelas é facilitado!</p>
 </section></section>
 <section id="referências" class="title-slide slide level1 center">
 <h1>Referências</h1>
 <ul>
 <li class="fragment">McKINNEY, Wes. <em>Python para Análise de Dados: Tratamento de dados com Pandas, NumPy e IPython</em>. São Paulo: O’Reilly/Novatec, 2017. Caps. 2 (seção 2.3) e 3 (seções 3.1–3.3).</li>
 <li class="fragment">Documentação oficial de Python: https://docs.python.org/pt-br/3/</li>
-<li class="fragment">Material de apoio: <em>Python Basics Cheat Sheet</em> (biblio/python_basics_cheat_sheet.pdf)</li>
 </ul>
 
 
